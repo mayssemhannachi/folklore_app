@@ -34,7 +34,7 @@
                     tools:srcCompat="@drawable/arrow" />
 
                 <TextView
-                    android:id="@+id/titleText"
+                    android:id="@+id/titleTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="title"
