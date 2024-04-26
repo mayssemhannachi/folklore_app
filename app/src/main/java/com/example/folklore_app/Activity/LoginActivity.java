@@ -1,4 +1,4 @@
-package com.example.folklore_app;
+package com.example.folklore_app.Activity;
 
 import android.app.Activity;
 
