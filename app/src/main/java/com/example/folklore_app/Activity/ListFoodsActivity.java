@@ -14,14 +14,14 @@ import com.example.folklore_app.R;
 import com.example.folklore_app.databinding.ActivityListFoodsBinding;
 
 public class ListFoodsActivity extends AppCompatActivity {
-ActivityListFoodsBinding binding;
-private RecyclerView.Adapter adapterListFood;
-private int category;
+    ActivityListFoodsBinding binding;
+    private RecyclerView.Adapter adapterListFood;
+    private int category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityListFoodsBinding.inflate(getLayoutInflater())
+        binding=ActivityListFoodsBinding.inflate(getLayoutInflater());
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

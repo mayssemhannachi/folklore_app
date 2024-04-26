@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "637065643725",
+    "project_id": "folklore-app-8d169",
+    "storage_bucket": "folklore-app-8d169.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637065643725:android:a8bb0f4b08db48366c8b84",
+        "android_client_info": {
+          "package_name": "com.example.folklore_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJccp9YX5mSptTTzFEjOl_DEJzZkw5eGo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
