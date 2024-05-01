@@ -1,7 +1,6 @@
 package com.example.folklore_app.Adapter;
 
 import android.content.Context;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,7 +65,7 @@ public class BestFoodAdapter extends RecyclerView.Adapter<BestFoodAdapter.viewho
 
             super(itemView);
             titleTxt=itemView.findViewById(R.id.titleTxt);
-            priceTxt=itemView.findViewById(R.id.priceTxt);
+            priceTxt=itemView.findViewById(R.id.titleTxt);
             starTxt=itemView.findViewById(R.id.starTxt);
             timeTxt=itemView.findViewById(R.id.timeTxt);
             pic=itemView.findViewById(R.id.pic);

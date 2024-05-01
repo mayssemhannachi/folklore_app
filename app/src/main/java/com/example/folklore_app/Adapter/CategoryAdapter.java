@@ -48,34 +48,34 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewho
                 holder.pic.setBackgroundResource(R.drawable.cat_1_background);
                 break;
             }
-            case 2: {
+            case 2:{
                 holder.pic.setBackgroundResource(R.drawable.cat_2_background);
                 break;
             }
-            case 3 :{
+            case 3:{
                 holder.pic.setBackgroundResource(R.drawable.cat_3_background);
                 break;
             }
-            case 4: {
+            case 4:{
                 holder.pic.setBackgroundResource(R.drawable.cat_4_background);
                 break;
             }
-            case 5: {
+            case 5:{
                 holder.pic.setBackgroundResource(R.drawable.cat_5_background);
                 break;
             }
-            case 6: {
+            case 6:{
                 holder.pic.setBackgroundResource(R.drawable.cat_6_background);
                 break;
             }
-            case 7: {
+            case 7:{
                 holder.pic.setBackgroundResource(R.drawable.cat_7_background);
                 break;
             }
         }
         int drawbleResourceId= 0;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
-            drawbleResourceId = context.getResources().getIdentifier(items.get(position).getImagePath(),"drawble",holder.itemView.getContext().getOpPackageName());
+            drawbleResourceId = context.getResources().getIdentifier(items.get(position).getImagePath(),"drawable",holder.itemView.getContext().getOpPackageName());
         }
         Glide.with(context)
                 .load(drawbleResourceId)
