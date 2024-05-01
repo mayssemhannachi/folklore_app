@@ -8,6 +8,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.folklore_app.Domain.Location;
+import com.example.folklore_app.Domain.Price;
+import com.example.folklore_app.Domain.Time;
 import com.example.folklore_app.R;
 import com.example.folklore_app.databinding.ActivityMainBinding;
 import com.google.firebase.database.DataSnapshot;
@@ -51,7 +53,53 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    private void initTime() {
+        DatabaseReference myRef = database.getReference("Time");
+        ArrayList<Time> list = new ArrayList<>();
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for(DataSnapshot issue : snapshot.getChildren()){
+                        list.add(issue.getValue(Time.class));
+                    }
+                    ArrayAdapter<Time> adapter = new ArrayAdapter<>(MainActivity.this, R.layout.sp_item, list);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    binding.locationSp.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void initPrice() {
+        DatabaseReference myRef = database.getReference("Price");
+        ArrayList<Price> list = new ArrayList<>();
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for(DataSnapshot issue : snapshot.getChildren()){
+                        list.add(issue.getValue(Price.class));
+                    }
+                    ArrayAdapter<Price> adapter = new ArrayAdapter<>(MainActivity.this, R.layout.sp_item, list);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    binding.priceSp.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
