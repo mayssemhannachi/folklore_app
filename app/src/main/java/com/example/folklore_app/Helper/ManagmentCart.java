@@ -53,6 +53,7 @@ public class ManagmentCart {
         }
         return fee;
     }
+
     public void minusNumberItem(ArrayList<Foods> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){
         if(listItem.get(position).getNumberInCart()==1){
             listItem.remove(position);
@@ -67,4 +68,5 @@ public class ManagmentCart {
         tinyDB.putListObject("CartList",listItem);
         changeNumberItemsListener.change();
     }
+
 }

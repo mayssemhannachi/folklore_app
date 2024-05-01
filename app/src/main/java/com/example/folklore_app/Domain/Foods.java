@@ -2,7 +2,7 @@ package com.example.folklore_app.Domain;
 
 import androidx.annotation.NonNull;
 
-public class Foods {
+public class Foods implements java.io.Serializable{
     private int CategoryId;
     private String Description;
     private boolean BestFood;
@@ -84,7 +84,7 @@ public class Foods {
         PriceId = priceId;
     }
 
-    public CharSequence getStar() {
+    public double getStar() {
         return Star;
     }
 
@@ -127,6 +127,6 @@ public class Foods {
     @NonNull
     @Override
     public String toString() {
-        return Title;
-    }
+        return Title;}
+
 }

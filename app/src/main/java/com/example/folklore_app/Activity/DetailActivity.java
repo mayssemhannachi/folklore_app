@@ -8,19 +8,45 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.bumptech.glide.Glide;
+import com.example.folklore_app.Domain.Foods;
 import com.example.folklore_app.R;
+import com.example.folklore_app.databinding.ActivityDetailBinding;
+import com.example.folklore_app.databinding.ActivityMainBinding;
 
 public class DetailActivity extends AppCompatActivity {
+
+    ActivityDetailBinding binding;
+    private Foods object;
+    private int num=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_detail);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.loginBtn), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        binding= ActivityDetailBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        getIntentExtra();
+        setVariable();
+
+    }
+
+    private void setVariable() {
+        binding.backBtn.setOnClickListener(v -> finish());
+
+        Glide.with(DetailActivity.this)
+                .load(object.getImagePath())
+                .into(binding.pic);
+
+        binding.priceTxt.setText("$"+object.getPrice());
+        binding.titleTxt.setText(object.getTitle());
+        binding.descriptionTxt.setText(object.getDescription());
+        binding.rateTxt.setText(object.getStar()+"");
+        binding.timeTxt.setText((float)object.getTimeValue()+" min");
+        binding.totalTxt.setText(num +object.getPrice()+"$");
+    }
+
+    private void getIntentExtra() {
+        object= (Foods) getIntent().getSerializableExtra("object");
     }
 }
