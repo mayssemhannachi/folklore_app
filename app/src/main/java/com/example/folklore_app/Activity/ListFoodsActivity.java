@@ -51,17 +51,6 @@ private boolean isSearch;
         binding.backBtn.setOnClickListener(v -> finish());
     }
 
-    private void initList() {
-        DatabaseReference myref =database.getReference("Foods");
-        binding.progressBar.setVisibility(View.VISIBLE);
-        ArrayList<> list=new ArrayList<>();
-        Query query ;
-        if(isSearch){
-            query=myref.orderByChild("Title").startAt(searchText).endAt(searchText+\'uf8ff');
-        }else{
-            query=myref.orderByChild("CategoryId").equalTo(categoryId);
 
-        }
-    }
 
 }

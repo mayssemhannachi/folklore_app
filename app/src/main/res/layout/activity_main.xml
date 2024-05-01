@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Activity.IntroActivity">
+    tools:context=".Activity.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -140,7 +140,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="8dp"
                         android:layout_weight="1"
-                        tools:src="@drawable/location_64px" />
+                        app:srcCompat="@drawable/location" />
 
                     <Spinner
                         android:id="@+id/locationSp"
@@ -167,7 +167,8 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="8dp"
                         android:layout_weight="1"
-                        tools:src="@drawable/clock_64px" />
+                        app:srcCompat="@drawable/clock_64px"
+                        app:tint="@color/blue_grey"/>
 
                     <Spinner
                         android:id="@+id/timeSp"
@@ -192,7 +193,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="8dp"
                         android:layout_weight="1"
-                        tools:src="@drawable/dollarsign" />
+                        app:srcCompat="@drawable/dollar" />
 
                     <Spinner
                         android:id="@+id/priceSp"
@@ -230,7 +231,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@color/orange"
-                    android:text="VIEW ALL" />
+                    android:text="VIEW ALL"
+                    android:gravity="end"/>
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout

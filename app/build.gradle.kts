@@ -38,13 +38,13 @@ android {
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.firestore)  // Assuming libs.firebase.database correctly points to firebase-database
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
@@ -53,6 +53,6 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:database.query")
-
+    implementation("com.google.firebase:firebase-database")  // Corrected line
+    implementation("com.github.bumptech.glide:glide:4.12.0")
 }
