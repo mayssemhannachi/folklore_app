@@ -1,0 +1,455 @@
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	(revision 01c3f2292cca96ace2ce94f30f3c523bdaecc1a9)
++++ /dev/null	(revision 01c3f2292cca96ace2ce94f30f3c523bdaecc1a9)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: .idea/appInsightsSettings.xml
+===================================================================
+diff --git a/.idea/appInsightsSettings.xml b/.idea/appInsightsSettings.xml
+deleted file mode 100644
+--- a/.idea/appInsightsSettings.xml	(revision 01c3f2292cca96ace2ce94f30f3c523bdaecc1a9)
++++ /dev/null	(revision 01c3f2292cca96ace2ce94f30f3c523bdaecc1a9)
+@@ -1,26 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="AppInsightsSettings">
+-    <option name="tabSettings">
+-      <map>
+-        <entry key="Firebase Crashlytics">
+-          <value>
+-            <InsightsFilterSettings>
+-              <option name="connection">
+-                <ConnectionSetting>
+-                  <option name="appId" value="com.example.folklore_app" />
+-                  <option name="mobileSdkAppId" value="1:637065643725:android:a8bb0f4b08db48366c8b84" />
+-                  <option name="projectId" value="folklore-app-8d169" />
+-                  <option name="projectNumber" value="637065643725" />
+-                </ConnectionSetting>
+-              </option>
+-              <option name="signal" value="SIGNAL_UNSPECIFIED" />
+-              <option name="timeIntervalDays" value="THIRTY_DAYS" />
+-              <option name="visibilityType" value="ALL" />
+-            </InsightsFilterSettings>
+-          </value>
+-        </entry>
+-      </map>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: app/src/main/res/drawable/cat_2_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/cat_2_background.xml b/app/src/main/res/drawable/cat_2_background.xml
+new file mode 100644
+--- /dev/null	(date 1714578335000)
++++ b/app/src/main/res/drawable/cat_2_background.xml	(date 1714578335000)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++<item>
++    <shape android:shape="rectangle">
++        <corners android:radius="10dp"/>
++        <solid android:color="#FC9088"/>
++    </shape>
++</item>
++</selector>
+\ No newline at end of file
+Index: app/src/main/res/drawable/cat_6_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/cat_6_background.xml b/app/src/main/res/drawable/cat_6_background.xml
+new file mode 100644
+--- /dev/null	(date 1714578508000)
++++ b/app/src/main/res/drawable/cat_6_background.xml	(date 1714578508000)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++<item>
++    <shape android:shape="rectangle">
++        <corners android:radius="10dp"/>
++        <solid android:color="#DE70E0"/>
++    </shape>
++</item>
++</selector>
+\ No newline at end of file
+Index: app/src/main/res/drawable/cat_5_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/cat_5_background.xml b/app/src/main/res/drawable/cat_5_background.xml
+new file mode 100644
+--- /dev/null	(date 1714578455000)
++++ b/app/src/main/res/drawable/cat_5_background.xml	(date 1714578455000)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++<item>
++    <shape android:shape="rectangle">
++        <corners android:radius="10dp"/>
++        <solid android:color="#92CEA4"/>
++    </shape>
++</item>
++</selector>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"VcsDirectoryMappings\">\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision 01c3f2292cca96ace2ce94f30f3c523bdaecc1a9)
++++ b/.idea/vcs.xml	(date 1714582854782)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: app/src/main/res/drawable/cat_0_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/cat_0_background.xml b/app/src/main/res/drawable/cat_0_background.xml
+new file mode 100644
+--- /dev/null	(date 1714577713000)
++++ b/app/src/main/res/drawable/cat_0_background.xml	(date 1714577713000)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++<item>
++    <shape android:shape="rectangle">
++        <corners android:radius="10dp"/>
++        <solid android:color="#A38FEC"/>
++    </shape>
++</item>
++</selector>
+\ No newline at end of file
+Index: app/src/main/res/drawable/cat_7_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/cat_7_background.xml b/app/src/main/res/drawable/cat_7_background.xml
+new file mode 100644
+--- /dev/null	(date 1714578546000)
++++ b/app/src/main/res/drawable/cat_7_background.xml	(date 1714578546000)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++<item>
++    <shape android:shape="rectangle">
++        <corners android:radius="10dp"/>
++        <solid android:color="#9EAADD"/>
++    </shape>
++</item>
++</selector>
+\ No newline at end of file
+Index: app/src/main/res/layout/viewholder_category.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/viewholder_category.xml b/app/src/main/res/layout/viewholder_category.xml
+new file mode 100644
+--- /dev/null	(date 1714580673667)
++++ b/app/src/main/res/layout/viewholder_category.xml	(date 1714580673667)
+@@ -0,0 +1,37 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="16dp"
++        android:orientation="vertical"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent">
++
++        <ImageView
++            android:id="@+id/imgCat"
++            android:layout_width="72dp"
++            android:layout_height="72dp"
++            android:layout_gravity="center"
++            android:background="@drawable/cat_0_background"
++            android:padding="12dp"
++            tools:srcCompat="@drawable/btn_1" />
++
++        <TextView
++            android:id="@+id/catNameTxt"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="8dp"
++            android:text="tittle"
++            android:textAlignment="center"
++            android:textColor="@color/blue_grey"
++            android:textSize="18sp" />
++    </LinearLayout>
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><project version=\"4\">\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"jbr-17\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\n  </component>\n  <component name=\"ProjectType\">\n    <option name=\"id\" value=\"Android\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 01c3f2292cca96ace2ce94f30f3c523bdaecc1a9)
++++ b/.idea/misc.xml	(date 1714582864797)
+@@ -1,3 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\n  <component name=\"GradleSettings\">\n    <option name=\"linkedExternalProjectsSettings\">\n      <GradleProjectSettings>\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\n        <option name=\"gradleJvm\" value=\"#GRADLE_LOCAL_JAVA_HOME\" />\n        <option name=\"modules\">\n          <set>\n            <option value=\"$PROJECT_DIR$\" />\n            <option value=\"$PROJECT_DIR$/app\" />\n          </set>\n        </option>\n        <option name=\"resolveExternalAnnotations\" value=\"false\" />\n      </GradleProjectSettings>\n      <GradleProjectSettings>\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\n        <option name=\"gradleJvm\" value=\"#GRADLE_LOCAL_JAVA_HOME\" />\n        <option name=\"resolveExternalAnnotations\" value=\"false\" />\n      </GradleProjectSettings>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	(revision 01c3f2292cca96ace2ce94f30f3c523bdaecc1a9)
++++ b/.idea/gradle.xml	(date 1714583184845)
+@@ -14,11 +14,6 @@
+         </option>
+         <option name="resolveExternalAnnotations" value="false" />
+       </GradleProjectSettings>
+-      <GradleProjectSettings>
+-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+-        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+-        <option name="resolveExternalAnnotations" value="false" />
+-      </GradleProjectSettings>
+     </option>
+   </component>
+ </project>
+\ No newline at end of file
+Index: app/src/main/res/drawable/cat_4_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/cat_4_background.xml b/app/src/main/res/drawable/cat_4_background.xml
+new file mode 100644
+--- /dev/null	(date 1714578415000)
++++ b/app/src/main/res/drawable/cat_4_background.xml	(date 1714578415000)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++<item>
++    <shape android:shape="rectangle">
++        <corners android:radius="10dp"/>
++        <solid android:color="#EE71A8"/>
++    </shape>
++</item>
++</selector>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:id=\"@+id/main\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:background=\"@color/white\"\n    tools:context=\".Activity.MainActivity\">\n\n    <ScrollView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\">\n\n        <LinearLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:orientation=\"vertical\">\n\n            <androidx.constraintlayout.widget.ConstraintLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"match_parent\"\n                android:layout_marginStart=\"16dp\"\n                android:layout_marginTop=\"16dp\"\n                android:layout_marginEnd=\"16dp\">\n\n                <TextView\n                    android:id=\"@+id/textView10\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:text=\"Welcome\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\" />\n\n                <TextView\n                    android:id=\"@+id/textView5\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:text=\"Trent Alexander Arnold\"\n                    android:textStyle=\"bold\"\n                    app:layout_constraintBottom_toBottomOf=\"@id/textView10\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toBottomOf=\"@id/imageView6\" />\n\n                <ImageView\n                    android:id=\"@+id/imageView6\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:src=\"@drawable/logout\"\n                    app:layout_constraintBottom_toBottomOf=\"parent\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\" />\n\n            </androidx.constraintlayout.widget.ConstraintLayout>\n\n            <LinearLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"match_parent\"\n                android:layout_marginStart=\"16dp\"\n                android:layout_marginTop=\"16dp\"\n                android:layout_marginEnd=\"16dp\"\n                android:orientation=\"horizontal\">\n\n                <ImageView\n                    android:id=\"@+id/filterBtn\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"50dp\"\n                    android:layout_marginEnd=\"6dp\"\n                    android:layout_weight=\"0.5\"\n                    android:background=\"@drawable/grey_background\"\n                    android:padding=\"12dp\"\n                    app:srcCompat=\"@drawable/settings_sliders_64px\" />\n\n                <LinearLayout\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"match_parent\"\n                    android:layout_weight=\"1\"\n                    android:background=\"@drawable/grey_background\"\n                    android:orientation=\"horizontal\">\n\n                    <EditText\n                        android:id=\"@+id/editTextText\"\n                        android:layout_width=\"wrap_content\"\n                        android:layout_height=\"match_parent\"\n                        android:layout_margin=\"4dp\"\n                        android:layout_weight=\"1\"\n                        android:background=\"@color/grey\"\n                        android:ems=\"10\"\n                        android:hint=\"Search for Food..\"\n                        android:inputType=\"text\"\n\n                        android:padding=\"8dp\"\n                        android:textAlignment=\"center\"\n                        android:textColor=\"@color/blue_grey\"\n                        android:textColorHint=\"@color/blue_grey\"\n                        android:textSize=\"16sp\" />\n\n                    <ImageView\n                        android:id=\"@+id/searchBtn\"\n                        android:layout_width=\"50dp\"\n                        android:layout_height=\"50dp\"\n                        android:layout_weight=\"1\"\n                        app:srcCompat=\"@drawable/loupe_64px\"\n                        android:layout_gravity=\"center\"\n                        android:padding=\"6dp\"\n                        />\n                </LinearLayout>\n\n                <ImageView\n                    android:id=\"@+id/cartBtn\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"50dp\"\n                    android:layout_marginStart=\"6dp\"\n                    android:layout_weight=\"0.5\"\n                    android:background=\"@drawable/grey_background\"\n                    android:padding=\"12dp\"\n                    app:srcCompat=\"@drawable/cart_64px\" />\n            </LinearLayout>\n\n            <LinearLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"match_parent\"\n                android:layout_marginStart=\"16dp\"\n                android:layout_marginEnd=\"16dp\"\n                android:layout_marginTop=\"16dp\"\n                android:orientation=\"horizontal\">\n\n                <LinearLayout\n                    android:layout_width=\"0dp\"\n                    android:layout_height=\"match_parent\"\n                    android:layout_weight=\"0.3333\"\n                    android:layout_marginEnd=\"8dp\"\n                    android:background=\"@drawable/grey_background\"\n                    android:orientation=\"horizontal\">\n\n                    <ImageView\n                        android:id=\"@+id/imageView11\"\n                        android:layout_width=\"50dp\"\n                        android:layout_height=\"match_parent\"\n                        android:layout_gravity=\"center_vertical\"\n                        android:layout_marginStart=\"8dp\"\n                        android:layout_weight=\"1\"\n                        app:srcCompat=\"@drawable/location\" />\n\n                    <Spinner\n                        android:id=\"@+id/locationSp\"\n                        android:layout_width=\"match_parent\"\n                        android:layout_height=\"match_parent\"\n                        android:layout_marginStart=\"4dp\"\n                        android:layout_weight=\"1\"\n                        android:background=\"@null\" />\n                </LinearLayout>\n\n                <LinearLayout\n                    android:layout_width=\"0dp\"\n                    android:layout_height=\"match_parent\"\n                    android:layout_marginStart=\"4dp\"\n                    android:layout_marginEnd=\"4dp\"\n                    android:layout_weight=\"0.3333\"\n                    android:background=\"@drawable/grey_background\"\n                    android:orientation=\"horizontal\">\n\n                    <ImageView\n                        android:id=\"@+id/imageView12\"\n                        android:layout_width=\"50dp\"\n                        android:layout_height=\"match_parent\"\n                        android:layout_gravity=\"center_vertical\"\n                        android:layout_marginStart=\"8dp\"\n                        android:layout_weight=\"1\"\n                        app:srcCompat=\"@drawable/clock_64px\"\n                        app:tint=\"@color/blue_grey\"/>\n\n                    <Spinner\n                        android:id=\"@+id/timeSp\"\n                        android:layout_width=\"match_parent\"\n                        android:layout_height=\"match_parent\"\n                        android:layout_marginStart=\"4dp\"\n                        android:layout_weight=\"1\"\n                        android:background=\"@null\" />\n                </LinearLayout>\n\n                <LinearLayout\n                    android:layout_width=\"0dp\"\n                    android:layout_height=\"40dp\"\n                    android:layout_weight=\"0.3333\"\n                    android:layout_marginStart=\"8dp\"\n                    android:background=\"@drawable/grey_background\"\n                    android:orientation=\"horizontal\">\n\n                    <ImageView\n                        android:layout_width=\"50dp\"\n                        android:layout_height=\"match_parent\"\n                        android:layout_gravity=\"center_vertical\"\n                        android:layout_marginStart=\"8dp\"\n                        android:layout_weight=\"1\"\n                        app:srcCompat=\"@drawable/dollar\" />\n\n                    <Spinner\n                        android:id=\"@+id/priceSp\"\n                        android:layout_width=\"match_parent\"\n                        android:layout_height=\"match_parent\"\n                        android:layout_marginStart=\"4dp\"\n                        android:layout_weight=\"1\"\n                        android:background=\"@null\" />\n\n                </LinearLayout>\n\n            </LinearLayout>\n\n            <LinearLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"match_parent\"\n                android:layout_marginTop=\"24dp\"\n                android:layout_marginStart=\"16dp\"\n                android:layout_marginEnd=\"16dp\"\n                android:orientation=\"horizontal\">\n\n                <TextView\n                    android:id=\"@+id/textView4\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_weight=\"1\"\n                    android:text=\"Today's Best Deals\"\n                    android:textSize=\"22dp\"\n                    android:textStyle=\"bold\"\n                    android:textColor=\"@color/blue_grey\"/>\n\n                <TextView\n                    android:id=\"@+id/textView11\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_weight=\"1\"\n                    android:textColor=\"@color/orange\"\n                    android:text=\"VIEW ALL\"\n                    android:gravity=\"end\"/>\n            </LinearLayout>\n\n            <androidx.constraintlayout.widget.ConstraintLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"300dp\">\n\n                <ProgressBar\n                    android:id=\"@+id/progressBarBestFood\"\n                    style=\"?android:attr/progressBarStyle\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    app:layout_constraintBottom_toBottomOf=\"@+id/bestFoodView\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\" />\n\n                <androidx.recyclerview.widget.RecyclerView\n                    android:id=\"@+id/bestFoodView\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    app:layout_constraintBottom_toBottomOf=\"parent\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\" />\n            </androidx.constraintlayout.widget.ConstraintLayout>\n\n            <TextView\n                android:layout_marginStart=\"16dp\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_weight=\"1\"\n                android:text=\"Choose Category\"\n                android:textSize=\"22dp\"\n                android:textStyle=\"bold\"\n                android:textColor=\"@color/blue_grey\"/>\n\n            <androidx.constraintlayout.widget.ConstraintLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"250dp\">\n\n                <ProgressBar\n                    android:id=\"@+id/progressBarCategory\"\n                    style=\"?android:attr/progressBarStyle\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    app:layout_constraintBottom_toBottomOf=\"parent\"\n                    app:layout_constraintEnd_toEndOf=\"@+id/categoryView\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"@+id/categoryView\" />\n\n                <androidx.recyclerview.widget.RecyclerView\n                    android:id=\"@+id/categoryView\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    app:layout_constraintBottom_toBottomOf=\"parent\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\" />\n            </androidx.constraintlayout.widget.ConstraintLayout>\n\n        </LinearLayout>\n    </ScrollView>\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision 01c3f2292cca96ace2ce94f30f3c523bdaecc1a9)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1714575828000)
+@@ -237,7 +237,8 @@
+ 
+             <androidx.constraintlayout.widget.ConstraintLayout
+                 android:layout_width="match_parent"
+-                android:layout_height="300dp">
++                android:layout_height="wrap_content"
++                android:minHeight="300dp">
+ 
+                 <ProgressBar
+                     android:id="@+id/progressBarBestFood"
+@@ -253,6 +254,9 @@
+                     android:id="@+id/bestFoodView"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
++                    android:clipToPadding="false"
++                    android:paddingStart="8dp"
++                    android:paddingEnd="8dp"
+                     app:layout_constraintBottom_toBottomOf="parent"
+                     app:layout_constraintEnd_toEndOf="parent"
+                     app:layout_constraintStart_toStartOf="parent"
+Index: app/src/main/res/drawable/cat_1_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/cat_1_background.xml b/app/src/main/res/drawable/cat_1_background.xml
+new file mode 100644
+--- /dev/null	(date 1714578293000)
++++ b/app/src/main/res/drawable/cat_1_background.xml	(date 1714578293000)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++<item>
++    <shape android:shape="rectangle">
++        <corners android:radius="10dp"/>
++        <solid android:color="#7BC3D5"/>
++    </shape>
++</item>
++</selector>
+\ No newline at end of file
+Index: app/src/main/java/com/example/folklore_app/Adapter/CategoryAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/folklore_app/Adapter/CategoryAdapter.java b/app/src/main/java/com/example/folklore_app/Adapter/CategoryAdapter.java
+new file mode 100644
+--- /dev/null	(date 1714581500453)
++++ b/app/src/main/java/com/example/folklore_app/Adapter/CategoryAdapter.java	(date 1714581500453)
+@@ -0,0 +1,106 @@
++package com.example.folklore_app.Adapter;
++
++import android.content.Context;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.ImageView;
++import android.widget.TextView;
++
++import androidx.annotation.NonNull;
++import androidx.recyclerview.widget.RecyclerView;
++
++import com.bumptech.glide.Glide;
++import com.bumptech.glide.load.resource.bitmap.CenterCrop;
++import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
++import com.example.folklore_app.Domain.Category;
++import com.example.folklore_app.Domain.Foods;
++import com.example.folklore_app.R;
++
++import java.util.ArrayList;
++
++public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewholder> {
++    ArrayList<Category> items;
++    Context context;
++
++    public CategoryAdapter(ArrayList<Category> items) {
++        this.items = items;
++    }
++
++    @NonNull
++    @Override
++    public CategoryAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
++        context= parent.getContext();
++        View inflate= LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_category,parent,false);
++        return new viewholder(inflate);
++    }
++
++    @Override
++    public void onBindViewHolder(@NonNull CategoryAdapter.viewholder holder, int position) {
++        holder.titleTxt.setText(items.get(position).getName());
++
++        switch (position){
++            case 0: {
++                holder.pic.setBackgroundResource(R.drawable.cat_0_background);
++                break;
++            }
++            case 1: {
++                holder.pic.setBackgroundResource(R.drawable.cat_1_background);
++                break;
++            }
++            case 2:{
++                holder.pic.setBackgroundResource(R.drawable.cat_2_background);
++                break;
++            }
++            case 3:{
++                holder.pic.setBackgroundResource(R.drawable.cat_3_background);
++                break;
++            }
++            case 4:{
++                holder.pic.setBackgroundResource(R.drawable.cat_4_background);
++                break;
++            }
++            case 5:{
++                holder.pic.setBackgroundResource(R.drawable.cat_5_background);
++                break;
++            }
++            case 6:{
++                holder.pic.setBackgroundResource(R.drawable.cat_6_background);
++                break;
++            }
++            case 7:{
++                holder.pic.setBackgroundResource(R.drawable.cat_7_background);
++                break;
++            }
++        }
++        int drawbleResourceId= 0;
++        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
++            drawbleResourceId = context.getResources().getIdentifier(items.get(position).getImagePath(),"drawble",holder.itemView.getContext().getOpPackageName());
++        }
++        Glide.with(context)
++                .load(drawbleResourceId)
++
++                .into(holder.pic);
++
++    }
++
++    @Override
++    public int getItemCount() {
++
++        return items.size();
++    }
++
++    public class viewholder extends RecyclerView.ViewHolder{
++
++        TextView titleTxt;
++        ImageView pic;
++
++        public viewholder(@NonNull View itemView) {
++
++            super(itemView);
++            titleTxt=itemView.findViewById(R.id.catNameTxt);
++            pic=itemView.findViewById(R.id.imgCat);
++        }
++    }
++
++}
+Index: app/src/main/res/drawable/cat_3_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/cat_3_background.xml b/app/src/main/res/drawable/cat_3_background.xml
+new file mode 100644
+--- /dev/null	(date 1714578374000)
++++ b/app/src/main/res/drawable/cat_3_background.xml	(date 1714578374000)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++<item>
++    <shape android:shape="rectangle">
++        <corners android:radius="10dp"/>
++        <solid android:color="#5DCC92"/>
++    </shape>
++</item>
++</selector>
+\ No newline at end of file
