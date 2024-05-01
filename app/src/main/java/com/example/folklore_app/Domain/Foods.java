@@ -84,7 +84,7 @@ public class Foods {
         PriceId = priceId;
     }
 
-    public double getStar() {
+    public CharSequence getStar() {
         return Star;
     }
 
