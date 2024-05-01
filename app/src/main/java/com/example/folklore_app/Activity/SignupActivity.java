@@ -33,7 +33,7 @@ public class SignupActivity extends BaseActivity {
     }
 
     private void setVariable() {
-        binding.signupBtn.setOnClickListener(v -> {
+        binding.signupBtn1.setOnClickListener(v -> {
             String email=binding.userEdt.getText().toString();
             String password=binding.passEdt.getText().toString();
 
