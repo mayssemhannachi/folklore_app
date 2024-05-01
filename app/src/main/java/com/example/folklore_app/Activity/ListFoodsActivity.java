@@ -1,12 +1,10 @@
 package com.example.folklore_app.Activity;
 
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -16,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.folklore_app.Adapter.FoodListAdapter;
 import com.example.folklore_app.Domain.Foods;
 import com.example.folklore_app.R;
-import com.example.folklore_app.databinding.ActivityListFoodsBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,7 +40,7 @@ public class ListFoodsActivity extends BaseActivity {
         getIntentExtra();
         initList();
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.loginBtn), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
