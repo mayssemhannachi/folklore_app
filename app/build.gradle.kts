@@ -44,7 +44,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
-    implementation(libs.firebase.firestore)  // Assuming libs.firebase.database correctly points to firebase-database
+ // Assuming libs.firebase.database correctly points to firebase-database
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
