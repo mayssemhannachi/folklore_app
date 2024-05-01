@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.folklore_app.Adapter.FoodListAdapter;
 import com.example.folklore_app.Domain.Foods;
 import com.example.folklore_app.R;
+import com.example.folklore_app.databinding.ActivityListFoodsBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
