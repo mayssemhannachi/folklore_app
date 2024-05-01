@@ -2,11 +2,16 @@ package com.example.folklore_app.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.folklore_app.Adapter.BestFoodAdapter;
+import com.example.folklore_app.Domain.Foods;
 import com.example.folklore_app.Domain.Location;
 import com.example.folklore_app.Domain.Price;
 import com.example.folklore_app.Domain.Time;
@@ -15,6 +20,7 @@ import com.example.folklore_app.databinding.ActivityMainBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -33,6 +39,38 @@ public class MainActivity extends BaseActivity {
 
 
         initLocation();
+        initTime();
+        initPrice();
+        initBestFood();
+    }
+
+    private void initBestFood() {
+        DatabaseReference myRef=database.getReference("Foods");
+        binding.progressBarBestFood.setVisibility(View.VISIBLE);
+        ArrayList<Foods> list=new ArrayList<>();
+        Query query=myRef.orderByChild("BestFood").equalTo(true);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@androidx.annotation.NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for (DataSnapshot issue: snapshot.getChildren()){
+                        list.add(issue.getValue(Foods.class));
+                    }
+                    if (list.size() >0){
+                        binding.bestFoodView.setLayoutManager(new LinearLayoutManager(MainActivity.this,LinearLayoutManager.HORIZONTAL,false));
+                        RecyclerView.Adapter adapter= new BestFoodAdapter(list);
+                        binding.bestFoodView.setAdapter(adapter);
+
+                    }
+                    binding.progressBarBestFood.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@androidx.annotation.NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void initLocation() {
@@ -70,7 +108,7 @@ public class MainActivity extends BaseActivity {
                     }
                     ArrayAdapter<Time> adapter = new ArrayAdapter<>(MainActivity.this, R.layout.sp_item, list);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    binding.locationSp.setAdapter(adapter);
+                    binding.timeSp.setAdapter(adapter);
                 }
             }
 
