@@ -3,6 +3,7 @@ package com.example.folklore_app.Activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -75,7 +76,11 @@ public class MainActivity extends BaseActivity {
         binding.cartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, CartActivity.class));
+                try {
+                    startActivity(new Intent(MainActivity.this, CartActivity.class));
+                } catch (Exception e) {
+                    Log.e("MainActivity", "Error starting CartActivity", e);
+                }
             }
         });
     }
