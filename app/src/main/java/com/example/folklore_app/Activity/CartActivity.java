@@ -18,11 +18,11 @@ import com.example.folklore_app.Helper.ManagmentCart;
 import com.example.folklore_app.R;
 import com.example.folklore_app.databinding.ActivityCartBinding;
 
-public class CartActivity extends AppCompatActivity {
+public class CartActivity extends BaseActivity {
     private ActivityCartBinding binding;
     private RecyclerView.Adapter adapter;
     private ManagmentCart managmentCart;
-    private Double tax;
+    private double tax;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +35,7 @@ public class CartActivity extends AppCompatActivity {
         calculateCart();
         initList();
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.loginBtn2), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
     }
 
     private void initList() {
@@ -57,14 +53,14 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void calculateCart() {
-        Double percentTax=0.02; //percent20%
-        Double delivery = 10.0;
-        tax= (double) (Math.round(managmentCart.getTotalFee()*percentTax*100.0)/100);
-        Double total= (double) (Math.round((managmentCart.getTotalFee()+tax+delivery)*100.0)/100);
-        Double itemTotal= (double) (Math.round(managmentCart.getTotalFee()*100.0)/100);
+        double percentTax=0.02; //percent20%
+        double delivery = 10.0;
+        tax= (Math.round(managmentCart.getTotalFee()*percentTax*100.0)/100);
+        double total= (Math.round((managmentCart.getTotalFee()+tax+delivery)*100.0)/100);
+        double itemTotal= (Math.round(managmentCart.getTotalFee()*100.0)/100);
 
         binding.totalFeeTxt.setText("$"+itemTotal);
-        binding.taxTxt.setText("$"+percentTax);
+        binding.taxTxt.setText("$"+tax);
         binding.deliveryTxt.setText("$"+delivery);
         binding.totalTxt.setText("$"+total);
 
