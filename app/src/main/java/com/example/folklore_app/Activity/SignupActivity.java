@@ -56,5 +56,9 @@ public class SignupActivity extends BaseActivity {
                 }
             });
         });
+
+        binding.loginBtn.setOnClickListener(v -> {
+            startActivity(new Intent(SignupActivity.this, LoginActivity.class));
+        });
     }
 }
