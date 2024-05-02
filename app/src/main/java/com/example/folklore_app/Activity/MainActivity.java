@@ -20,6 +20,7 @@ import com.example.folklore_app.Domain.Price;
 import com.example.folklore_app.Domain.Time;
 import com.example.folklore_app.R;
 import com.example.folklore_app.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,7 +47,9 @@ public class MainActivity extends BaseActivity {
         initPrice();
         initBestFood();
         initCategory();
+
     }
+
 
     private void initBestFood() {
         DatabaseReference myRef=database.getReference("Foods");

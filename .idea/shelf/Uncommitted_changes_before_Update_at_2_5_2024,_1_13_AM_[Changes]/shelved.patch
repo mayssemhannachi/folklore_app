@@ -1,0 +1,103 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:tools=\"http://schemas.android.com/tools\">\n\n    <application\n        android:allowBackup=\"true\"\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\n        android:fullBackupContent=\"@xml/backup_rules\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/Theme.Folklore_app\"\n        tools:targetApi=\"31\">\n        <activity\n            android:name=\".Activity.DetailActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Activity.CartActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Activity.MainActivity\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n        <activity\n            android:name=\".Activity.SignupActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Activity.LoginActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Activity.BaseActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Activity.ListFoodsActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Activity.IntroActivity\"\n            android:exported=\"true\" />\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 9828a6a7c4748702a4598b18fae2b5c5349b745e)
++++ b/app/src/main/AndroidManifest.xml	(date 1714608544740)
+@@ -14,7 +14,7 @@
+         tools:targetApi="31">
+         <activity
+             android:name=".Activity.DetailActivity"
+-            android:exported="false" />
++            android:exported="true" />
+         <activity
+             android:name=".Activity.CartActivity"
+             android:exported="false" />
+@@ -29,16 +29,16 @@
+         </activity>
+         <activity
+             android:name=".Activity.SignupActivity"
+-            android:exported="false" />
++            android:exported="true" />
+         <activity
+             android:name=".Activity.LoginActivity"
+-            android:exported="false" />
++            android:exported="true" />
+         <activity
+             android:name=".Activity.BaseActivity"
+-            android:exported="false" />
++            android:exported="true" />
+         <activity
+             android:name=".Activity.ListFoodsActivity"
+-            android:exported="false" />
++            android:exported="true" />
+         <activity
+             android:name=".Activity.IntroActivity"
+             android:exported="true" />
+Index: app/src/main/java/com/example/folklore_app/Helper/ManagmentCart.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.folklore_app.Helper;\n\nimport android.content.Context;\nimport android.widget.Toast;\n\n\nimport com.example.folklore_app.Domain.Foods;\n\nimport java.util.ArrayList;\n\n\npublic class ManagmentCart {\n    private Context context;\n    private TinyDB tinyDB;\n\n    public ManagmentCart(Context context) {\n        this.context = context;\n        this.tinyDB=new TinyDB(context);\n    }\n\n\n\n\n    public void insertFood(Foods item) {\n        ArrayList<Foods> listpop = getListCart();\n        boolean existAlready = false;\n        int n = 0;\n        for (int i = 0; i < listpop.size(); i++) {\n            if (listpop.get(i).getTitle().equals(item.getTitle())) {\n                existAlready = true;\n                n = i;\n                break;\n            }\n        }\n        if(existAlready){\n            listpop.get(n).setNumberInCart(item.getNumberInCart());\n        }else{\n            listpop.add(item);\n        }\n        tinyDB.putListObject(\"CartList\",listpop);\n        Toast.makeText(context, \"Added to your Cart\", Toast.LENGTH_SHORT).show();\n    }\n\n    public ArrayList<Foods> getListCart() {\n        return tinyDB.getListObject(\"CartList\");\n    }\n\n    public Double getTotalFee(){\n        ArrayList<Foods> listItem=getListCart();\n        double fee=0;\n        for (int i = 0; i < listItem.size(); i++) {\n            fee=fee+(listItem.get(i).getPrice()*listItem.get(i).getNumberInCart());\n        }\n        return fee;\n    }\n\n    public void minusNumberItem(ArrayList<Foods> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){\n        if(listItem.get(position).getNumberInCart()==1){\n            listItem.remove(position);\n        }else{\n            listItem.get(position).setNumberInCart(listItem.get(position).getNumberInCart()-1);\n        }\n        tinyDB.putListObject(\"CartList\",listItem);\n        changeNumberItemsListener.change();\n    }\n    public  void plusNumberItem(ArrayList<Foods> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){\n        listItem.get(position).setNumberInCart(listItem.get(position).getNumberInCart()+1);\n        tinyDB.putListObject(\"CartList\",listItem);\n        changeNumberItemsListener.change();\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/folklore_app/Helper/ManagmentCart.java b/app/src/main/java/com/example/folklore_app/Helper/ManagmentCart.java
+--- a/app/src/main/java/com/example/folklore_app/Helper/ManagmentCart.java	(revision 9828a6a7c4748702a4598b18fae2b5c5349b745e)
++++ b/app/src/main/java/com/example/folklore_app/Helper/ManagmentCart.java	(date 1714607788419)
+@@ -54,19 +54,6 @@
+         return fee;
+     }
+ 
+-    public void minusNumberItem(ArrayList<Foods> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){
+-        if(listItem.get(position).getNumberInCart()==1){
+-            listItem.remove(position);
+-        }else{
+-            listItem.get(position).setNumberInCart(listItem.get(position).getNumberInCart()-1);
+-        }
+-        tinyDB.putListObject("CartList",listItem);
+-        changeNumberItemsListener.change();
+-    }
+-    public  void plusNumberItem(ArrayList<Foods> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){
+-        listItem.get(position).setNumberInCart(listItem.get(position).getNumberInCart()+1);
+-        tinyDB.putListObject("CartList",listItem);
+-        changeNumberItemsListener.change();
+-    }
++
+ 
+ }
+Index: .idea/deploymentTargetDropDown.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"deploymentTargetDropDown\">\n    <value>\n      <entry key=\"app\">\n        <State />\n      </entry>\n    </value>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+--- a/.idea/deploymentTargetDropDown.xml	(revision 9828a6a7c4748702a4598b18fae2b5c5349b745e)
++++ b/.idea/deploymentTargetDropDown.xml	(date 1714608544941)
+@@ -3,7 +3,20 @@
+   <component name="deploymentTargetDropDown">
+     <value>
+       <entry key="app">
+-        <State />
++        <State>
++          <runningDeviceTargetSelectedWithDropDown>
++            <Target>
++              <type value="RUNNING_DEVICE_TARGET" />
++              <deviceKey>
++                <Key>
++                  <type value="SERIAL_NUMBER" />
++                  <value value="f9a5b5be" />
++                </Key>
++              </deviceKey>
++            </Target>
++          </runningDeviceTargetSelectedWithDropDown>
++          <timeTargetWasSelectedWithDropDown value="2024-05-02T00:02:26.138534Z" />
++        </State>
+       </entry>
+     </value>
+   </component>

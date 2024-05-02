@@ -1,0 +1,322 @@
+Index: build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\nplugins {\n    alias(libs.plugins.androidApplication) apply false\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle.kts b/build.gradle.kts
+--- a/build.gradle.kts	
++++ b/build.gradle.kts	
+@@ -1,4 +1,10 @@
++buildscript {
++    dependencies {
++        classpath(libs.google.services)
++    }
++}
+ // Top-level build file where you can add configuration options common to all sub-projects/modules.
+ plugins {
+     alias(libs.plugins.androidApplication) apply false
++    id("com.google.gms.google-services") version "4.4.1" apply false
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/folklore_app/Activity/BaseActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/folklore_app/Activity/BaseActivity.java b/app/src/main/java/com/example/folklore_app/Activity/BaseActivity.java
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/folklore_app/Activity/BaseActivity.java	
+@@ -0,0 +1,32 @@
++package com.example.folklore_app.Activity;
++
++import android.os.Bundle;
++
++import androidx.activity.EdgeToEdge;
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.core.graphics.Insets;
++import androidx.core.view.ViewCompat;
++import androidx.core.view.WindowInsetsCompat;
++
++import com.example.folklore_app.R;
++import com.google.firebase.Firebase;
++import com.google.firebase.auth.FirebaseAuth;
++import com.google.firebase.database.FirebaseDatabase;
++
++
++public class BaseActivity extends AppCompatActivity {
++
++    FirebaseAuth mAuth;
++    FirebaseDatabase database;
++
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++
++        database = FirebaseDatabase.getInstance();
++        mAuth = FirebaseAuth.getInstance();
++
++        getWindow().setStatusBarColor(getResources().getColor(R.color.white));
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/folklore_app/SignupActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/folklore_app/SignupActivity.java b/app/src/main/java/com/example/folklore_app/SignupActivity.java
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/folklore_app/SignupActivity.java	
+@@ -0,0 +1,17 @@
++package com.example.folklore_app;
++
++import android.os.Bundle;
++
++import androidx.activity.EdgeToEdge;
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.core.graphics.Insets;
++import androidx.core.view.ViewCompat;
++import androidx.core.view.WindowInsetsCompat;
++
++public class SignupActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++    }
++}
+\ No newline at end of file
+Index: gradle/libs.versions.toml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[versions]\nagp = \"8.3.2\"\njunit = \"4.13.2\"\njunitVersion = \"1.1.5\"\nespressoCore = \"3.5.1\"\nappcompat = \"1.6.1\"\nmaterial = \"1.11.0\"\nactivity = \"1.8.0\"\nconstraintlayout = \"2.1.4\"\n\n[libraries]\njunit = { group = \"junit\", name = \"junit\", version.ref = \"junit\" }\next-junit = { group = \"androidx.test.ext\", name = \"junit\", version.ref = \"junitVersion\" }\nespresso-core = { group = \"androidx.test.espresso\", name = \"espresso-core\", version.ref = \"espressoCore\" }\nappcompat = { group = \"androidx.appcompat\", name = \"appcompat\", version.ref = \"appcompat\" }\nmaterial = { group = \"com.google.android.material\", name = \"material\", version.ref = \"material\" }\nactivity = { group = \"androidx.activity\", name = \"activity\", version.ref = \"activity\" }\nconstraintlayout = { group = \"androidx.constraintlayout\", name = \"constraintlayout\", version.ref = \"constraintlayout\" }\n\n[plugins]\nandroidApplication = { id = \"com.android.application\", version.ref = \"agp\" }\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+--- a/gradle/libs.versions.toml	
++++ b/gradle/libs.versions.toml	
+@@ -7,6 +7,9 @@
+ material = "1.11.0"
+ activity = "1.8.0"
+ constraintlayout = "2.1.4"
++googleServices = "4.4.1"
++firebaseAuth = "22.3.1"
++firebaseDatabase = "20.3.1"
+ 
+ [libraries]
+ junit = { group = "junit", name = "junit", version.ref = "junit" }
+@@ -16,6 +19,9 @@
+ material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+ activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+ constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
++google-services = { group = "com.google.gms", name = "google-services", version.ref = "googleServices" }
++firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
++firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+ 
+ [plugins]
+ androidApplication = { id = "com.android.application", version.ref = "agp" }
+Index: .idea/appInsightsSettings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AppInsightsSettings\">\n    <option name=\"tabSettings\">\n      <map>\n        <entry key=\"Firebase Crashlytics\">\n          <value>\n            <InsightsFilterSettings>\n              <option name=\"connection\">\n                <ConnectionSetting>\n                  <option name=\"appId\" value=\"PLACEHOLDER\" />\n                  <option name=\"mobileSdkAppId\" value=\"\" />\n                  <option name=\"projectId\" value=\"\" />\n                  <option name=\"projectNumber\" value=\"\" />\n                </ConnectionSetting>\n              </option>\n              <option name=\"signal\" value=\"SIGNAL_UNSPECIFIED\" />\n              <option name=\"timeIntervalDays\" value=\"THIRTY_DAYS\" />\n              <option name=\"visibilityType\" value=\"ALL\" />\n            </InsightsFilterSettings>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/appInsightsSettings.xml b/.idea/appInsightsSettings.xml
+--- a/.idea/appInsightsSettings.xml	
++++ b/.idea/appInsightsSettings.xml	
+@@ -8,10 +8,10 @@
+             <InsightsFilterSettings>
+               <option name="connection">
+                 <ConnectionSetting>
+-                  <option name="appId" value="PLACEHOLDER" />
+-                  <option name="mobileSdkAppId" value="" />
+-                  <option name="projectId" value="" />
+-                  <option name="projectNumber" value="" />
++                  <option name="appId" value="com.example.folklore_app" />
++                  <option name="mobileSdkAppId" value="1:637065643725:android:a8bb0f4b08db48366c8b84" />
++                  <option name="projectId" value="folklore-app-8d169" />
++                  <option name="projectNumber" value="637065643725" />
+                 </ConnectionSetting>
+               </option>
+               <option name="signal" value="SIGNAL_UNSPECIFIED" />
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:tools=\"http://schemas.android.com/tools\">\n\n    <application\n        android:allowBackup=\"true\"\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\n        android:fullBackupContent=\"@xml/backup_rules\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/Theme.Folklore_app\"\n        tools:targetApi=\"31\">\n        <activity\n            android:name=\".Activity.ListFoodsActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Activity.IntroActivity\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	
++++ b/app/src/main/AndroidManifest.xml	
+@@ -13,6 +13,12 @@
+         android:theme="@style/Theme.Folklore_app"
+         tools:targetApi="31">
+         <activity
++            android:name=".SignupActivity"
++            android:exported="false" />
++        <activity
++            android:name=".Activity.BaseActivity"
++            android:exported="false" />
++        <activity
+             android:name=".Activity.ListFoodsActivity"
+             android:exported="false" />
+         <activity
+Index: app/google-services.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/google-services.json b/app/google-services.json
+new file mode 100644
+--- /dev/null	
++++ b/app/google-services.json	
+@@ -0,0 +1,29 @@
++{
++  "project_info": {
++    "project_number": "637065643725",
++    "project_id": "folklore-app-8d169",
++    "storage_bucket": "folklore-app-8d169.appspot.com"
++  },
++  "client": [
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:637065643725:android:a8bb0f4b08db48366c8b84",
++        "android_client_info": {
++          "package_name": "com.example.folklore_app"
++        }
++      },
++      "oauth_client": [],
++      "api_key": [
++        {
++          "current_key": "AIzaSyAJccp9YX5mSptTTzFEjOl_DEJzZkw5eGo"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": []
++        }
++      }
++    }
++  ],
++  "configuration_version": "1"
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/folklore_app/Activity/IntroActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.folklore_app.Activity;\n\nimport android.os.Bundle;\n\nimport androidx.activity.EdgeToEdge;\nimport androidx.appcompat.app.AppCompatActivity;\nimport androidx.core.graphics.Insets;\nimport androidx.core.view.ViewCompat;\nimport androidx.core.view.WindowInsetsCompat;\n\nimport com.example.folklore_app.R;\n\npublic class IntroActivity extends AppCompatActivity {\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        EdgeToEdge.enable(this);\n        setContentView(R.layout.activity_main);\n        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {\n            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());\n            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);\n            return insets;\n        });\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/folklore_app/Activity/IntroActivity.java b/app/src/main/java/com/example/folklore_app/Activity/IntroActivity.java
+--- a/app/src/main/java/com/example/folklore_app/Activity/IntroActivity.java	
++++ b/app/src/main/java/com/example/folklore_app/Activity/IntroActivity.java	
+@@ -1,6 +1,10 @@
+ package com.example.folklore_app.Activity;
+ 
++import android.app.Activity;
++import android.content.Intent;
++import android.graphics.Color;
+ import android.os.Bundle;
++import android.view.View;
+ 
+ import androidx.activity.EdgeToEdge;
+ import androidx.appcompat.app.AppCompatActivity;
+@@ -9,18 +13,46 @@
+ import androidx.core.view.WindowInsetsCompat;
+ 
+ import com.example.folklore_app.R;
++import com.example.folklore_app.databinding.ActivityIntroBinding;
++
++public class IntroActivity extends BaseActivity {
+ 
+-public class IntroActivity extends AppCompatActivity {
++
++    //direct references to all views that have an ID in the corresponding XML layout files.//
++    ActivityIntroBinding binding;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-        EdgeToEdge.enable(this);
+-        setContentView(R.layout.activity_main);
+-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+-            return insets;
++
++       //This method is used to set the content view of the activity.//
++        binding = ActivityIntroBinding.inflate(getLayoutInflater());
++
++        setContentView(binding.getRoot());
++
++            
++        setVariable();
++
++        getWindow().setStatusBarColor(Color.parseColor("#FFFFFF"));
++        
++    }
++
++    private void setVariable() {
++
++        //This method is used to set the content view of the activity.//
++        binding.loginBtn.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++
++            }
+         });
++
++        binding.signupBtn.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++
++            }
++        });
++
+     }
+ }
+\ No newline at end of file
+Index: app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\n\nplugins {\n    alias(libs.plugins.androidApplication)\n}\n\nandroid {\n    namespace = \"com.example.folklore_app\"\n    compileSdk = 34\n\n    defaultConfig {\n        applicationId = \"com.example.folklore_app\"\n        minSdk = 24\n        targetSdk = 34\n        versionCode = 1\n        versionName = \"1.0\"\n\n        testInstrumentationRunner = \"androidx.test.runner.AndroidJUnitRunner\"\n    }\n\n    buildTypes {\n        release {\n            isMinifyEnabled = false\n            proguardFiles(\n                getDefaultProguardFile(\"proguard-android-optimize.txt\"),\n                \"proguard-rules.pro\"\n            )\n        }\n    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    buildFeatures{\n        viewBinding =true;\n    }\n}\n\ndependencies {\n\n    implementation(libs.appcompat)\n    implementation(libs.material)\n    implementation(libs.activity)\n    implementation(libs.constraintlayout)\n\n    testImplementation(libs.junit)\n    androidTestImplementation(libs.ext.junit)\n    androidTestImplementation(libs.espresso.core)\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+--- a/app/build.gradle.kts	
++++ b/app/build.gradle.kts	
+@@ -2,6 +2,7 @@
+ 
+ plugins {
+     alias(libs.plugins.androidApplication)
++    id("com.google.gms.google-services")
+ }
+ 
+ android {
+@@ -42,8 +43,15 @@
+     implementation(libs.material)
+     implementation(libs.activity)
+     implementation(libs.constraintlayout)
++    implementation(libs.firebase.auth)
++    implementation(libs.firebase.database)
+ 
+     testImplementation(libs.junit)
+     androidTestImplementation(libs.ext.junit)
+     androidTestImplementation(libs.espresso.core)
++
++    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
++    implementation("com.google.firebase:firebase-analytics")
++    implementation("com.google.firebase:firebase-auth")
++
+ }
+\ No newline at end of file

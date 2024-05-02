@@ -60,7 +60,7 @@ public class Foods implements java.io.Serializable{
         LocationId = locationId;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return Price;
     }
 
@@ -116,7 +116,7 @@ public class Foods implements java.io.Serializable{
         Title = title;
     }
 
-    public int getNumberInCart() {
+    public String getNumberInCart() {
         return numberInCart;
     }
 

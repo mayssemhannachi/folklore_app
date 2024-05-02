@@ -9,8 +9,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.folklore_app.Adapter.CartAdapter;
+import com.example.folklore_app.Helper.ChangeNumberItemsListener;
 import com.example.folklore_app.Helper.ManagmentCart;
 import com.example.folklore_app.R;
 import com.example.folklore_app.databinding.ActivityCartBinding;
@@ -40,6 +43,17 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void initList() {
+        if (managmentCart.getListCart().isEmpty()){
+            binding.emptyTxt.setVisibility(View.VISIBLE);
+            binding.scrollviewCart.setVisibility(View.GONE);
+        }else {
+            binding.emptyTxt.setVisibility(View.GONE);
+            binding.scrollviewCart.setVisibility(View.VISIBLE);
+        }
+        LinearLayoutManager linearLayoutManager =new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        binding.cartView.setLayoutManager(linearLayoutManager);
+        adapter=new CartAdapter(managmentCart.getListCart(), this, () -> calculateCart());
+        binding.cartView.setAdapter(adapter);
     }
 
     private void calculateCart() {
