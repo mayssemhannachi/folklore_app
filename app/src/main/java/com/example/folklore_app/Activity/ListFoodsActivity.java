@@ -41,22 +41,10 @@ public class ListFoodsActivity extends BaseActivity {
         getIntentExtra();
         initList();
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.loginBtn), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
     }
 
-    private void getIntentExtra() {
-        categoryId = getIntent().getIntExtra("CategoryId", 0);
-        categoryName = getIntent().getStringExtra("Category");
-        searchText = getIntent().getStringExtra("text");
-        isSearch = getIntent().getBooleanExtra("isSearch", false);
 
-        binding.titleTxt.setText(categoryName);
-        binding.backBtn.setOnClickListener(v -> finish());
-    }
 
     private void initList() {
         DatabaseReference myRef = database.getReference("Foods");
@@ -67,7 +55,7 @@ public class ListFoodsActivity extends BaseActivity {
         if (isSearch) {
             query = myRef.orderByChild("Title").startAt(searchText).endAt(searchText + '\uf8ff');
         } else {
-            query = myRef.orderByChild("Category").equalTo(categoryId);
+            query = myRef.orderByChild("CategoryId").equalTo(categoryId);
         }
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -90,5 +78,13 @@ public class ListFoodsActivity extends BaseActivity {
                 // Gérer l'annulation de la requête ici
             }
         });
+    }
+    private void getIntentExtra() {
+        categoryId = getIntent().getIntExtra("CategoryId", 0);
+        categoryName = getIntent().getStringExtra("CategoryName");
+        searchText = getIntent().getStringExtra("text");
+        isSearch = getIntent().getBooleanExtra("isSearch", false);
+        binding.titleTxt.setText(categoryName);
+        binding.backBtn.setOnClickListener(v -> finish());
     }
 }

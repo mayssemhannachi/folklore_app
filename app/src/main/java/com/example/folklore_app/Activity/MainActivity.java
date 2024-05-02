@@ -1,6 +1,7 @@
 package com.example.folklore_app.Activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -47,7 +48,36 @@ public class MainActivity extends BaseActivity {
         initPrice();
         initBestFood();
         initCategory();
+        setVariable();
 
+    }
+
+    private void setVariable() {
+        binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        });
+        binding.searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text=binding.searchEdt.getText().toString();
+                if (!text.isEmpty()){
+                    Intent intent=new Intent(MainActivity.this,ListFoodsActivity.class);
+                    intent.putExtra("text",text);
+                    intent.putExtra("isSearch",true);
+                    startActivity(intent);
+                }
+            }
+        });
+        binding.cartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CartActivity.class));
+            }
+        });
     }
 
 

@@ -1,7 +1,7 @@
 
 
 plugins {
-    alias(libs.plugins.androidApplication)
+    id("com.android.application")
     id("com.google.gms.google-services")
 }
 
@@ -56,6 +56,6 @@ dependencies {
     implementation("com.google.firebase:firebase-database")  // Corrected line
     implementation("com.github.bumptech.glide:glide:4.12.0")
 
-    implementation("com.google.code.gson:gson:2.8.9")
+    implementation("com.google.code.gson:gson:2.+")
 
 }

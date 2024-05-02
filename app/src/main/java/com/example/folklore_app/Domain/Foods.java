@@ -1,8 +1,8 @@
 package com.example.folklore_app.Domain;
 
-import androidx.annotation.NonNull;
 
-public class Foods implements java.io.Serializable{
+import java.io.Serializable;
+public class Foods implements Serializable{
     private int CategoryId;
     private String Description;
     private boolean BestFood;
@@ -16,6 +16,8 @@ public class Foods implements java.io.Serializable{
     private int TimeValue;
     private String Title;
     private int numberInCart;
+    @Override
+    public String toString() {return Title;}
 
     public Foods() {
     }
@@ -60,7 +62,7 @@ public class Foods implements java.io.Serializable{
         LocationId = locationId;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return Price;
     }
 
@@ -116,7 +118,7 @@ public class Foods implements java.io.Serializable{
         Title = title;
     }
 
-    public String getNumberInCart() {
+    public int getNumberInCart() {
         return numberInCart;
     }
 
@@ -124,9 +126,6 @@ public class Foods implements java.io.Serializable{
         this.numberInCart = numberInCart;
     }
 
-    @NonNull
-    @Override
-    public String toString() {
-        return Title;}
+
 
 }
