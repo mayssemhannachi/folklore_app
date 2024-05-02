@@ -1,0 +1,38 @@
+Index: app/src/main/java/com/example/folklore_app/Activity/CartActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.folklore_app.Activity;\n\nimport android.os.Bundle;\n\nimport androidx.activity.EdgeToEdge;\nimport androidx.appcompat.app.AppCompatActivity;\nimport androidx.core.graphics.Insets;\nimport androidx.core.view.ViewCompat;\nimport androidx.core.view.WindowInsetsCompat;\n\nimport com.example.folklore_app.R;\n\npublic class CartActivity extends AppCompatActivity {\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        EdgeToEdge.enable(this);\n        setContentView(R.layout.activity_cart);\n        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.loginBtn), (v, insets) -> {\n            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());\n            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);\n            return insets;\n        });\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/folklore_app/Activity/CartActivity.java b/app/src/main/java/com/example/folklore_app/Activity/CartActivity.java
+--- a/app/src/main/java/com/example/folklore_app/Activity/CartActivity.java	
++++ b/app/src/main/java/com/example/folklore_app/Activity/CartActivity.java	
+@@ -17,7 +17,7 @@
+         super.onCreate(savedInstanceState);
+         EdgeToEdge.enable(this);
+         setContentView(R.layout.activity_cart);
+-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.loginBtn), (v, insets) -> {
++        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.loginBtn2), (v, insets) -> {
+             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+             return insets;
+Index: app/src/main/res/layout/activity_list_foods.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:id=\"@+id/loginBtn\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".Activity.ListFoodsActivity\">\n\n    <ScrollView\n        android:id=\"@+id/scrollview\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\">\n\n        <LinearLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:orientation=\"vertical\" >\n\n            <androidx.constraintlayout.widget.ConstraintLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"match_parent\">\n\n                <ImageView\n                    android:id=\"@+id/backBtn\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:padding=\"12dp\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\"\n                    tools:srcCompat=\"@drawable/arrow\" />\n\n                <TextView\n                    android:id=\"@+id/titleTxt\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:text=\"title\"\n                    android:textColor=\"@color/blue_grey\"\n                    android:textSize=\"24sp\"\n                    android:textStyle=\"bold\"\n                    app:layout_constraintBottom_toBottomOf=\"parent\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\" />\n            </androidx.constraintlayout.widget.ConstraintLayout>\n\n            <androidx.constraintlayout.widget.ConstraintLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"match_parent\">\n\n                <androidx.recyclerview.widget.RecyclerView\n                    android:id=\"@+id/foodListView\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"match_parent\"\n                    app:layout_constraintEnd_toEndOf=\"parent\" />\n            </androidx.constraintlayout.widget.ConstraintLayout>\n        </LinearLayout>\n    </ScrollView>\n\n    <ProgressBar\n        android:id=\"@+id/progressBar\"\n        style=\"?android:attr/progressBarStyle\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"@+id/scrollview\"\n        app:layout_constraintTop_toTopOf=\"@+id/scrollview\" />\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_list_foods.xml b/app/src/main/res/layout/activity_list_foods.xml
+--- a/app/src/main/res/layout/activity_list_foods.xml	
++++ b/app/src/main/res/layout/activity_list_foods.xml	
+@@ -2,7 +2,7 @@
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+-    android:id="@+id/loginBtn"
++    android:id="@+id/loginBtn2"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     tools:context=".Activity.ListFoodsActivity">
