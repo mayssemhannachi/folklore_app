@@ -1,0 +1,495 @@
+Index: app/src/main/java/com/example/folklore_app/Adapter/BestFoodAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.folklore_app.Adapter;\n\nimport android.content.Context;\nimport android.view.LayoutInflater;\nimport android.view.View;\nimport android.view.ViewGroup;\nimport android.widget.ImageView;\nimport android.widget.TextView;\n\nimport androidx.annotation.NonNull;\nimport androidx.recyclerview.widget.RecyclerView;\n\nimport com.bumptech.glide.Glide;\nimport com.bumptech.glide.load.resource.bitmap.CenterCrop;\nimport com.bumptech.glide.load.resource.bitmap.RoundedCorners;\n\nimport com.example.folklore_app.Domain.Foods;\nimport com.example.folklore_app.R;\n\nimport java.util.ArrayList;\n\npublic class BestFoodAdapter extends RecyclerView.Adapter<BestFoodAdapter.viewholder> {\n    ArrayList<Foods> items;\n    Context context;\n\n    public BestFoodAdapter(ArrayList<Foods> items) {\n        this.items = items;\n    }\n\n    @NonNull\n    @Override\n    public BestFoodAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {\n        context= parent.getContext();\n        View inflate= LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_best_deal,parent,false);\n        return new viewholder(inflate);\n    }\n\n    @Override\n    public void onBindViewHolder(@NonNull BestFoodAdapter.viewholder holder, int position) {\n        holder.titleTxt.setText(items.get(position).getTitle());\n        holder.priceTxt.setText(\"$\"+items.get(position).getPrice());\n        holder.timeTxt.setText(items.get(position).getTimeValue()+\" min\");\n        holder.starTxt.setText(\"\"+items.get(position).getStar());\n\n\n        Glide.with(context)\n                .load(items.get(position).getImagePath())\n                .transform(new CenterCrop(), new RoundedCorners(30))\n                .into(holder.pic);\n\n    }\n\n    @Override\n    public int getItemCount() {\n\n        return items.size();\n    }\n\n    public class viewholder extends RecyclerView.ViewHolder{\n\n        TextView titleTxt,priceTxt,starTxt,timeTxt;\n        ImageView pic;\n\n        public viewholder(@NonNull View itemView) {\n\n            super(itemView);\n            titleTxt=itemView.findViewById(R.id.titleTxt);\n            priceTxt=itemView.findViewById(R.id.titleTxt);\n            starTxt=itemView.findViewById(R.id.starTxt);\n            timeTxt=itemView.findViewById(R.id.timeTxt);\n            pic=itemView.findViewById(R.id.pic);\n        }\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/folklore_app/Adapter/BestFoodAdapter.java b/app/src/main/java/com/example/folklore_app/Adapter/BestFoodAdapter.java
+--- a/app/src/main/java/com/example/folklore_app/Adapter/BestFoodAdapter.java	(revision 808f384ea3026ae8610b0a4f1f42aedad43e84b6)
++++ b/app/src/main/java/com/example/folklore_app/Adapter/BestFoodAdapter.java	(date 1714606200007)
+@@ -1,6 +1,7 @@
+ package com.example.folklore_app.Adapter;
+ 
+ import android.content.Context;
++import android.content.Intent;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+@@ -14,6 +15,7 @@
+ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+ 
++import com.example.folklore_app.Activity.DetailActivity;
+ import com.example.folklore_app.Domain.Foods;
+ import com.example.folklore_app.R;
+ 
+@@ -48,7 +50,17 @@
+                 .transform(new CenterCrop(), new RoundedCorners(30))
+                 .into(holder.pic);
+ 
++
++        holder.itemView.setOnClickListener(v -> {
++            Intent intent=new Intent(context, DetailActivity.class);
++            intent.putExtra("object",items.get(position));
++            context.startActivity(intent);
++
++        });
++
+     }
++
++
+ 
+     @Override
+     public int getItemCount() {
+Index: app/src/main/java/com/example/folklore_app/Domain/Foods.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.folklore_app.Domain;\n\nimport androidx.annotation.NonNull;\n\npublic class Foods {\n    private int CategoryId;\n    private String Description;\n    private boolean BestFood;\n    private int Id;\n    private int LocationId;\n    private double Price;\n    private String ImagePath;\n    private int PriceId;\n    private double Star;\n    private int TimeId;\n    private int TimeValue;\n    private String Title;\n    private int numberInCart;\n\n    public Foods() {\n    }\n\n    public int getCategoryId() {\n        return CategoryId;\n    }\n\n    public void setCategoryId(int categoryId) {\n        CategoryId = categoryId;\n    }\n\n    public String getDescription() {\n        return Description;\n    }\n\n    public void setDescription(String description) {\n        Description = description;\n    }\n\n    public boolean isBestFood() {\n        return BestFood;\n    }\n\n    public void setBestFood(boolean bestFood) {\n        BestFood = bestFood;\n    }\n\n    public int getId() {\n        return Id;\n    }\n\n    public void setId(int id) {\n        Id = id;\n    }\n\n    public int getLocationId() {\n        return LocationId;\n    }\n\n    public void setLocationId(int locationId) {\n        LocationId = locationId;\n    }\n\n    public double getPrice() {\n        return Price;\n    }\n\n    public void setPrice(double price) {\n        Price = price;\n    }\n\n    public String getImagePath() {\n        return ImagePath;\n    }\n\n    public void setImagePath(String imagePath) {\n        ImagePath = imagePath;\n    }\n\n    public int getPriceId() {\n        return PriceId;\n    }\n\n    public void setPriceId(int priceId) {\n        PriceId = priceId;\n    }\n\n    public CharSequence getStar() {\n        return Star;\n    }\n\n    public void setStar(double star) {\n        Star = star;\n    }\n\n    public int getTimeId() {\n        return TimeId;\n    }\n\n    public void setTimeId(int timeId) {\n        TimeId = timeId;\n    }\n\n    public int getTimeValue() {\n        return TimeValue;\n    }\n\n    public void setTimeValue(int timeValue) {\n        TimeValue = timeValue;\n    }\n\n    public String getTitle() {\n        return Title;\n    }\n\n    public void setTitle(String title) {\n        Title = title;\n    }\n\n    public int getNumberInCart() {\n        return numberInCart;\n    }\n\n    public void setNumberInCart(int numberInCart) {\n        this.numberInCart = numberInCart;\n    }\n\n    @NonNull\n    @Override\n    public String toString() {\n        return Title;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/folklore_app/Domain/Foods.java b/app/src/main/java/com/example/folklore_app/Domain/Foods.java
+--- a/app/src/main/java/com/example/folklore_app/Domain/Foods.java	(revision 808f384ea3026ae8610b0a4f1f42aedad43e84b6)
++++ b/app/src/main/java/com/example/folklore_app/Domain/Foods.java	(date 1714606117659)
+@@ -2,7 +2,7 @@
+ 
+ import androidx.annotation.NonNull;
+ 
+-public class Foods {
++public class Foods implements java.io.Serializable{
+     private int CategoryId;
+     private String Description;
+     private boolean BestFood;
+@@ -84,7 +84,7 @@
+         PriceId = priceId;
+     }
+ 
+-    public CharSequence getStar() {
++    public double getStar() {
+         return Star;
+     }
+ 
+@@ -127,6 +127,6 @@
+     @NonNull
+     @Override
+     public String toString() {
+-        return Title;
+-    }
+-}
++        return Title;}
++
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/folklore_app/Activity/DetailActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.folklore_app.Activity;\n\nimport android.os.Bundle;\n\nimport androidx.activity.EdgeToEdge;\nimport androidx.appcompat.app.AppCompatActivity;\nimport androidx.core.graphics.Insets;\nimport androidx.core.view.ViewCompat;\nimport androidx.core.view.WindowInsetsCompat;\n\nimport com.example.folklore_app.R;\n\npublic class DetailActivity extends AppCompatActivity {\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        EdgeToEdge.enable(this);\n        setContentView(R.layout.activity_detail);\n        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {\n            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());\n            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);\n            return insets;\n        });\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/folklore_app/Activity/DetailActivity.java b/app/src/main/java/com/example/folklore_app/Activity/DetailActivity.java
+--- a/app/src/main/java/com/example/folklore_app/Activity/DetailActivity.java	(revision 808f384ea3026ae8610b0a4f1f42aedad43e84b6)
++++ b/app/src/main/java/com/example/folklore_app/Activity/DetailActivity.java	(date 1714605500241)
+@@ -8,19 +8,45 @@
+ import androidx.core.view.ViewCompat;
+ import androidx.core.view.WindowInsetsCompat;
+ 
++import com.bumptech.glide.Glide;
++import com.example.folklore_app.Domain.Foods;
+ import com.example.folklore_app.R;
++import com.example.folklore_app.databinding.ActivityDetailBinding;
++import com.example.folklore_app.databinding.ActivityMainBinding;
+ 
+ public class DetailActivity extends AppCompatActivity {
+ 
++    ActivityDetailBinding binding;
++    private Foods object;
++    private int num=1;
++
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-        EdgeToEdge.enable(this);
+-        setContentView(R.layout.activity_detail);
+-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+-            return insets;
+-        });
++        binding= ActivityDetailBinding.inflate(getLayoutInflater());
++        setContentView(binding.getRoot());
++
++        getIntentExtra();
++        setVariable();
++
++    }
++
++    private void setVariable() {
++        binding.backBtn.setOnClickListener(v -> finish());
++
++        Glide.with(DetailActivity.this)
++                .load(object.getImagePath())
++                .into(binding.pic);
++
++        binding.priceTxt.setText("$"+object.getPrice());
++        binding.titleTxt.setText(object.getTitle());
++        binding.descriptionTxt.setText(object.getDescription());
++        binding.rateTxt.setText(object.getStar()+"");
++        binding.timeTxt.setText((float)object.getTimeValue()+" min");
++        binding.totalTxt.setText(num +object.getPrice()+"$");
++    }
++
++    private void getIntentExtra() {
++        object= (Foods) getIntent().getSerializableExtra("object");
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_detail.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:id=\"@+id/main\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".Activity.DetailActivity\">\n\n    <ScrollView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\">\n\n        <LinearLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:orientation=\"vertical\" >\n\n            <androidx.constraintlayout.widget.ConstraintLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\">\n\n                <ImageView\n                    android:id=\"@+id/imageView\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"400dp\"\n                    android:scaleType=\"centerCrop\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\"\n                    tools:srcCompat=\"@tools:sample/avatars\" />\n\n                <ImageView\n                    android:id=\"@+id/faveBtn\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginEnd=\"8dp\"\n                    app:layout_constraintBottom_toBottomOf=\"@+id/imageView\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintTop_toBottomOf=\"@+id/imageView\"\n                    tools:srcCompat=\"@drawable/heart_\" />\n\n                <ImageView\n                    android:id=\"@+id/backBtn\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginStart=\"24dp\"\n                    android:layout_marginTop=\"24dp\"\n                    android:padding=\"8dp\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\"\n                    tools:srcCompat=\"@drawable/arrow\" />\n\n            </androidx.constraintlayout.widget.ConstraintLayout>\n\n            <LinearLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"match_parent\"\n                android:layout_marginStart=\"16dp\"\n                android:layout_marginEnd=\"16dp\"\n                android:layout_marginTop=\"8dp\"\n                android:orientation=\"horizontal\">\n\n                <TextView\n                    android:id=\"@+id/textView21\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_weight=\"1\"\n                    android:textColor=\"@color/blue_grey\"\n                    android:textSize=\"20sp\"\n                    android:textStyle=\"bold\"\n                    android:text=\"Title\" />\n\n                <TextView\n                    android:id=\"@+id/timeTxt\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:text=\"$40\"\n                    android:textColor=\"@color/blue\"\n                    android:textSize=\"20sp\"\n                    android:textStyle=\"bold\"/>\n            </LinearLayout>\n\n            <androidx.constraintlayout.widget.ConstraintLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"match_parent\"\n                android:layout_marginStart=\"16dp\"\n                android:layout_marginEnd=\"16dp\"\n                android:layout_marginTop=\"16dp\">\n\n                <RatingBar\n                    android:id=\"@+id/ratingBar\"\n                    style=\"@android:style/Widget.DeviceDefault.Light.RatingBar.Indicator\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:numStars=\"5\"\n                    android:progressTint=\"#FFC104\"\n                    android:rating=\"3.5\"\n                    android:stepSize=\"0.1\"\n                    app:layout_constraintBottom_toBottomOf=\"parent\"\n                    app:layout_constraintStart_toStartOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\" />\n\n                <TextView\n                    android:id=\"@+id/rateTxt\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:text=\"5 Rating\"\n                    app:layout_constraintBottom_toBottomOf=\"parent\"\n                    app:layout_constraintStart_toEndOf=\"@+id/ratingBar\"\n                    app:layout_constraintTop_toTopOf=\"parent\" />\n\n                <ImageView\n                    android:id=\"@+id/imageView9\"\n                    android:layout_width=\"20dp\"\n                    android:layout_height=\"20dp\"\n                    app:layout_constraintBottom_toBottomOf=\"parent\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\"\n                    tools:srcCompat=\"@drawable/clock_64px\"\n                    app:tint=\"@color/blue\" />\n\n                <TextView\n                    android:id=\"@+id/timeTxt\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginEnd=\"8dp\"\n                    android:text=\"15 min\"\n                    app:layout_constraintBottom_toBottomOf=\"parent\"\n                    app:layout_constraintEnd_toEndOf=\"parent\"\n                    app:layout_constraintTop_toTopOf=\"parent\" />\n            </androidx.constraintlayout.widget.ConstraintLayout>\n\n            <TextView\n                android:id=\"@+id/textView25\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:text=\"Details\"\n                android:layout_marginStart=\"16dp\"\n                android:layout_marginTop=\"16dp\"\n                android:textStyle=\"bold\"\n                android:textSize=\"18sp\"\n                android:textColor=\"@color/blue_grey\"\n                />\n\n            <TextView\n                android:id=\"@+id/textView26\"\n                android:layout_width=\"match_parent\"\n                android:layout_margin=\"16dp\"\n                android:layout_height=\"wrap_content\"\n                android:text=\"Indulge in comfort with the Chili Cheese Dog, a heartly delight boasting a beef hot dog smothered in rich chili, melted cheddar cheese, and diced onions. Indulge in comfort with the Chili Cheese Dog, a heartly delight boasting a beef hot dog smothered in rich chili, melted cheddar\ncheese, and diced onions. \"\n                android:textSize=\"16sp\"\n                android:textColor=\"@color/blue_grey\"/>\n\n            <androidx.constraintlayout.widget.ConstraintLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"match_parent\">\n\n                <TextView\n                    android:id=\"@+id/textView27\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:text=\"TextView\" />\n            </androidx.constraintlayout.widget.ConstraintLayout>\n\n\n        </LinearLayout>\n    </ScrollView>\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_detail.xml b/app/src/main/res/layout/activity_detail.xml
+--- a/app/src/main/res/layout/activity_detail.xml	(revision 808f384ea3026ae8610b0a4f1f42aedad43e84b6)
++++ b/app/src/main/res/layout/activity_detail.xml	(date 1714606294334)
+@@ -8,20 +8,24 @@
+     tools:context=".Activity.DetailActivity">
+ 
+     <ScrollView
++        android:id="@+id/scrollView2"
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent">
++        android:layout_height="match_parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent">
+ 
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:orientation="vertical" >
++            android:orientation="vertical"
++            android:paddingBottom="90dp">
+ 
+             <androidx.constraintlayout.widget.ConstraintLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content">
+ 
+                 <ImageView
+-                    android:id="@+id/imageView"
++                    android:id="@+id/pic"
+                     android:layout_width="match_parent"
+                     android:layout_height="400dp"
+                     android:scaleType="centerCrop"
+@@ -34,10 +38,10 @@
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginEnd="8dp"
+-                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
++                    app:layout_constraintBottom_toBottomOf="@+id/pic"
+                     app:layout_constraintEnd_toEndOf="parent"
+-                    app:layout_constraintTop_toBottomOf="@+id/imageView"
+-                    tools:srcCompat="@drawable/heart_" />
++                    app:layout_constraintTop_toBottomOf="@+id/pic"
++                    tools:srcCompat="@drawable/heartpic" />
+ 
+                 <ImageView
+                     android:id="@+id/backBtn"
+@@ -56,36 +60,36 @@
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_marginStart="16dp"
++                android:layout_marginTop="8dp"
+                 android:layout_marginEnd="16dp"
+-                android:layout_marginTop="8dp"
+                 android:orientation="horizontal">
+ 
+                 <TextView
+-                    android:id="@+id/textView21"
++                    android:id="@+id/titleTxt"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
++                    android:text="Title"
+                     android:textColor="@color/blue_grey"
+                     android:textSize="20sp"
+-                    android:textStyle="bold"
+-                    android:text="Title" />
++                    android:textStyle="bold" />
+ 
+                 <TextView
+-                    android:id="@+id/timeTxt"
++                    android:id="@+id/priceTxt"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="$40"
+                     android:textColor="@color/blue"
+                     android:textSize="20sp"
+-                    android:textStyle="bold"/>
++                    android:textStyle="bold" />
+             </LinearLayout>
+ 
+             <androidx.constraintlayout.widget.ConstraintLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_marginStart="16dp"
+-                android:layout_marginEnd="16dp"
+-                android:layout_marginTop="16dp">
++                android:layout_marginTop="16dp"
++                android:layout_marginEnd="16dp">
+ 
+                 <RatingBar
+                     android:id="@+id/ratingBar"
+@@ -116,8 +120,8 @@
+                     app:layout_constraintBottom_toBottomOf="parent"
+                     app:layout_constraintEnd_toEndOf="parent"
+                     app:layout_constraintTop_toTopOf="parent"
+-                    tools:srcCompat="@drawable/clock_64px"
+-                    app:tint="@color/blue" />
++                    app:tint="@color/blue"
++                    tools:srcCompat="@drawable/clock_64px" />
+ 
+                 <TextView
+                     android:id="@+id/timeTxt"
+@@ -126,7 +130,7 @@
+                     android:layout_marginEnd="8dp"
+                     android:text="15 min"
+                     app:layout_constraintBottom_toBottomOf="parent"
+-                    app:layout_constraintEnd_toEndOf="parent"
++                    app:layout_constraintEnd_toStartOf="@+id/imageView9"
+                     app:layout_constraintTop_toTopOf="parent" />
+             </androidx.constraintlayout.widget.ConstraintLayout>
+ 
+@@ -134,37 +138,133 @@
+                 android:id="@+id/textView25"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+-                android:text="Details"
+                 android:layout_marginStart="16dp"
+                 android:layout_marginTop="16dp"
+-                android:textStyle="bold"
++                android:text="Details"
++                android:textColor="@color/blue_grey"
+                 android:textSize="18sp"
+-                android:textColor="@color/blue_grey"
+-                />
++                android:textStyle="bold" />
+ 
+             <TextView
+-                android:id="@+id/textView26"
++                android:id="@+id/descriptionTxt"
+                 android:layout_width="match_parent"
+-                android:layout_margin="16dp"
+                 android:layout_height="wrap_content"
++                android:layout_margin="16dp"
+                 android:text="Indulge in comfort with the Chili Cheese Dog, a heartly delight boasting a beef hot dog smothered in rich chili, melted cheddar cheese, and diced onions. Indulge in comfort with the Chili Cheese Dog, a heartly delight boasting a beef hot dog smothered in rich chili, melted cheddar
+ cheese, and diced onions. "
+-                android:textSize="16sp"
+-                android:textColor="@color/blue_grey"/>
++                android:textColor="@color/blue_grey"
++                android:textSize="16sp" />
+ 
+             <androidx.constraintlayout.widget.ConstraintLayout
+                 android:layout_width="match_parent"
+-                android:layout_height="match_parent">
++                android:layout_height="match_parent"
++                android:layout_marginStart="16dp"
++                android:layout_marginEnd="16dp">
+ 
+                 <TextView
+                     android:id="@+id/textView27"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+-                    android:text="TextView" />
++                    android:text="Quantity"
++                    android:textColor="@color/blue_grey"
++                    android:textSize="18sp"
++                    android:textStyle="bold"
++                    app:layout_constraintBottom_toBottomOf="parent"
++                    app:layout_constraintStart_toStartOf="parent"
++                    app:layout_constraintTop_toTopOf="parent" />
++
++                <TextView
++                    android:id="@+id/minusBtn"
++                    android:layout_width= "28dp"
++                    android:layout_height="28dp"
++                    android:layout_marginStart="16dp"
++                    android:background="@drawable/edittext_background"
++                    android:gravity="center"
++                    android:text="-"
++                    android:textColor="@color/blue"
++                    android:textSize="16sp"
++                    app:layout_constraintBottom_toBottomOf="parent"
++                    app:layout_constraintStart_toEndOf="@+id/textView27"
++                    app:layout_constraintTop_toTopOf="parent" />
++
++                <TextView
++                    android:id="@+id/textView29"
++                    android:layout_width="20dp"
++                    android:layout_height="wrap_content"
++                    android:layout_marginStart="8dp"
++                    android:gravity="center"
++                    android:text="0"
++                    android:textSize="16sp"
++                    android:textStyle="bold"
++                    app:layout_constraintBottom_toBottomOf="parent"
++                    app:layout_constraintStart_toEndOf="@+id/minusBtn"
++                    app:layout_constraintTop_toTopOf="parent" />
++
++                <TextView
++                    android:id="@+id/plusBtn"
++                    android:layout_width="28dp"
++                    android:layout_height="28dp"
++                    android:layout_marginStart="8dp"
++                    android:background="@drawable/edittext_background"
++                    android:gravity="center"
++                    android:text="+"
++                    android:textColor="@color/blue"
++                    android:textStyle="bold"
++                    app:layout_constraintBottom_toBottomOf="parent"
++                    app:layout_constraintStart_toEndOf="@+id/textView29"
++                    app:layout_constraintTop_toTopOf="parent" />
+             </androidx.constraintlayout.widget.ConstraintLayout>
+ 
+ 
+         </LinearLayout>
+     </ScrollView>
+ 
++     <androidx.constraintlayout.widget.ConstraintLayout
++        android:layout_width="0dp"
++        android:layout_height="75dp"
++         android:background="@color/grey"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent">
++
++         <androidx.appcompat.widget.AppCompatButton
++             android:id="@+id/addBtn"
++             style="@android:style/Widget.Button"
++             android:layout_width="180dp"
++             android:layout_height="wrap_content"
++             android:layout_marginEnd="16dp"
++             android:background="@drawable/blue_button_background"
++             android:drawableStart="@drawable/cart"
++             android:paddingStart="16dp"
++             android:text="Add to Cart"
++             android:textColor="@color/white"
++             android:textSize="20sp"
++             app:layout_constraintBottom_toBottomOf="parent"
++             app:layout_constraintEnd_toEndOf="parent"
++             app:layout_constraintTop_toTopOf="parent" />
++
++         <TextView
++             android:id="@+id/textView31"
++             android:layout_width="wrap_content"
++             android:layout_height="wrap_content"
++             android:layout_marginStart="24dp"
++             android:textSize="16sp"
++             android:text="Total Price"
++             android:textColor="@color/blue_grey"
++             app:layout_constraintStart_toStartOf="parent"
++             app:layout_constraintTop_toTopOf="@+id/addBtn" />
++
++         <TextView
++             android:id="@+id/totalTxt"
++             android:layout_width="wrap_content"
++             android:layout_height="wrap_content"
++             android:text="$0"
++             android:textColor="@color/blue_grey"
++             android:textSize="16sp"
++             android:textStyle="bold"
++
++             app:layout_constraintStart_toStartOf="@+id/textView31"
++             app:layout_constraintTop_toBottomOf="@+id/textView31" />
++     </androidx.constraintlayout.widget.ConstraintLayout>
++
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/folklore_app/Adapter/FoodListAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.folklore_app.Adapter;\nimport android.annotation.SuppressLint;\nimport android.content.Context;\nimport android.view.LayoutInflater;\nimport android.view.View;\nimport android.view.ViewGroup;\nimport android.widget.ImageView;\nimport android.widget.TextView;\n\nimport androidx.annotation.NonNull;\nimport androidx.recyclerview.widget.RecyclerView;\n\nimport com.bumptech.glide.Glide;\nimport com.bumptech.glide.load.resource.bitmap.CenterCrop;\nimport com.bumptech.glide.load.resource.bitmap.RoundedCorners;\nimport com.example.folklore_app.Domain.Foods;\nimport com.example.folklore_app.R;\n\n\nimport org.checkerframework.checker.units.qual.C;\n\nimport java.util.ArrayList;\n\npublic class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.viewholder> {\n    ArrayList<Foods> items;\n    @SuppressLint(\"RestrictedApi\")\n    Context context;\n\n    public FoodListAdapter(ArrayList<Foods> items) {\n        this.items = items;\n    }\n\n    @NonNull\n    @Override\n    public FoodListAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {\n        context=parent.getContext();\n        View inflate= LayoutInflater.from(context).inflate(R.layout.viewholder_list_food,parent,false);\n        return new viewholder(inflate);\n    }\n\n    @Override\n    public void onBindViewHolder(@NonNull FoodListAdapter.viewholder holder, int position) {\n        holder.titleTxt.setText(items.get(position).getTitle());\n        holder.timeTxt.setText(items.get(position).getTimeValue() +\" min\");\n        holder.priceTxt.setText(\"$\" + items.get(position).getPrice());\n        holder.starTxt.setText(items.get(position).getStar());\n        Glide.with(context)\n                .load(items.get(position).getImagePath())\n                .transform(new CenterCrop(),new RoundedCorners(30))\n                .into(holder.pic);\n\n\n\n\n\n    }\n\n    @Override\n    public int getItemCount() {\n        return items.size();\n    }\n    public class viewholder extends RecyclerView.ViewHolder{\n        TextView titleTxt,priceTxt,starTxt,timeTxt;\n        ImageView pic;\n        public viewholder(@NonNull View itemView) {\n            super(itemView);\n            titleTxt=itemView.findViewById(R.id.titleTxt);\n            priceTxt=itemView.findViewById(R.id.priceTxt);\n            starTxt=itemView.findViewById(R.id.starTxt);\n            pic=itemView.findViewById(R.id.img);\n\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/folklore_app/Adapter/FoodListAdapter.java b/app/src/main/java/com/example/folklore_app/Adapter/FoodListAdapter.java
+--- a/app/src/main/java/com/example/folklore_app/Adapter/FoodListAdapter.java	(revision 808f384ea3026ae8610b0a4f1f42aedad43e84b6)
++++ b/app/src/main/java/com/example/folklore_app/Adapter/FoodListAdapter.java	(date 1714606140638)
+@@ -1,6 +1,7 @@
+ package com.example.folklore_app.Adapter;
+ import android.annotation.SuppressLint;
+ import android.content.Context;
++import android.content.Intent;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+@@ -8,11 +9,13 @@
+ import android.widget.TextView;
+ 
+ import androidx.annotation.NonNull;
++import androidx.appcompat.app.WindowDecorActionBar;
+ import androidx.recyclerview.widget.RecyclerView;
+ 
+ import com.bumptech.glide.Glide;
+ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
++import com.example.folklore_app.Activity.DetailActivity;
+ import com.example.folklore_app.Domain.Foods;
+ import com.example.folklore_app.R;
+ 
+@@ -43,13 +46,20 @@
+         holder.titleTxt.setText(items.get(position).getTitle());
+         holder.timeTxt.setText(items.get(position).getTimeValue() +" min");
+         holder.priceTxt.setText("$" + items.get(position).getPrice());
+-        holder.starTxt.setText(items.get(position).getStar());
++        holder.rateTxt.setText(""+items.get(position).getStar());
+         Glide.with(context)
+                 .load(items.get(position).getImagePath())
+                 .transform(new CenterCrop(),new RoundedCorners(30))
+                 .into(holder.pic);
+ 
+ 
++        holder.itemView.setOnClickListener(v -> {
++            Intent intent=new Intent(context, DetailActivity.class);
++            intent.putExtra("object",items.get(position));
++            context.startActivity(intent);
++
++        });
++
+ 
+ 
+ 
+@@ -60,6 +70,7 @@
+         return items.size();
+     }
+     public class viewholder extends RecyclerView.ViewHolder{
++        public WindowDecorActionBar.TabImpl rateTxt;
+         TextView titleTxt,priceTxt,starTxt,timeTxt;
+         ImageView pic;
+         public viewholder(@NonNull View itemView) {
+Index: app/src/main/java/com/example/folklore_app/Helper/ManagmentCart.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.folklore_app.Helper;\n\nimport android.content.Context;\nimport android.widget.Toast;\n\n\nimport com.example.folklore_app.Domain.Foods;\n\nimport java.util.ArrayList;\n\n\npublic class ManagmentCart {\n    private Context context;\n    private TinyDB tinyDB;\n\n    public ManagmentCart(Context context) {\n        this.context = context;\n        this.tinyDB=new TinyDB(context);\n    }\n\n\n\n\n    public void insertFood(Foods item) {\n        ArrayList<Foods> listpop = getListCart();\n        boolean existAlready = false;\n        int n = 0;\n        for (int i = 0; i < listpop.size(); i++) {\n            if (listpop.get(i).getTitle().equals(item.getTitle())) {\n                existAlready = true;\n                n = i;\n                break;\n            }\n        }\n        if(existAlready){\n            listpop.get(n).setNumberInCart(item.getNumberInCart());\n        }else{\n            listpop.add(item);\n        }\n        tinyDB.putListObject(\"CartList\",listpop);\n        Toast.makeText(context, \"Added to your Cart\", Toast.LENGTH_SHORT).show();\n    }\n\n    public ArrayList<Foods> getListCart() {\n        return tinyDB.getListObject(\"CartList\");\n    }\n\n    public Double getTotalFee(){\n        ArrayList<Foods> listItem=getListCart();\n        double fee=0;\n        for (int i = 0; i < listItem.size(); i++) {\n            fee=fee+(listItem.get(i).getPrice()*listItem.get(i).getNumberInCart());\n        }\n        return fee;\n    }\n    public void minusNumberItem(ArrayList<Foods> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){\n        if(listItem.get(position).getNumberInCart()==1){\n            listItem.remove(position);\n        }else{\n            listItem.get(position).setNumberInCart(listItem.get(position).getNumberInCart()-1);\n        }\n        tinyDB.putListObject(\"CartList\",listItem);\n        changeNumberItemsListener.change();\n    }\n    public  void plusNumberItem(ArrayList<Foods> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){\n        listItem.get(position).setNumberInCart(listItem.get(position).getNumberInCart()+1);\n        tinyDB.putListObject(\"CartList\",listItem);\n        changeNumberItemsListener.change();\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/folklore_app/Helper/ManagmentCart.java b/app/src/main/java/com/example/folklore_app/Helper/ManagmentCart.java
+--- a/app/src/main/java/com/example/folklore_app/Helper/ManagmentCart.java	(revision 808f384ea3026ae8610b0a4f1f42aedad43e84b6)
++++ b/app/src/main/java/com/example/folklore_app/Helper/ManagmentCart.java	(date 1714601454846)
+@@ -53,6 +53,7 @@
+         }
+         return fee;
+     }
++
+     public void minusNumberItem(ArrayList<Foods> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){
+         if(listItem.get(position).getNumberInCart()==1){
+             listItem.remove(position);
+@@ -67,4 +68,5 @@
+         tinyDB.putListObject("CartList",listItem);
+         changeNumberItemsListener.change();
+     }
++
+ }
