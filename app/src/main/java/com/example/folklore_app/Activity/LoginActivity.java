@@ -26,7 +26,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void setVariable() {
-        binding.loginBtn.setOnClickListener(v -> {
+        binding.login.setOnClickListener(v -> {
             String email = binding.userEdt.getText().toString();
             String password = binding.passEdt.getText().toString();
 
@@ -42,5 +42,10 @@ public class LoginActivity extends BaseActivity {
                 Toast.makeText(LoginActivity.this, "Please fill username and password", Toast.LENGTH_SHORT).show();
             }
         });
+
+        binding.signupBtn.setOnClickListener(v -> {
+            startActivity(new Intent(LoginActivity.this, SignupActivity.class));
+        });
+
     }
 }
