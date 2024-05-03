@@ -25,6 +25,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewholder> {
     ArrayList<Foods> list;
     private ManagmentCart managmentCart;
     ChangeNumberItemsListener changeNumberItemsListener;
+    Context context;
 
     public CartAdapter(ArrayList<Foods> list , Context context, ChangeNumberItemsListener changeNumberItemsListener) {
         this.list = list;
@@ -35,11 +36,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewholder> {
     @NonNull
     @Override
     public CartAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate= LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_cart,parent,false);
+        Context context;
+        View inflate= LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_cart,parent,false);
         return new viewholder(inflate);
     }
 
     @SuppressLint("SetTextI18n")
+
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.viewholder holder, @SuppressLint("RecyclerView") int position) {
         holder.title.setText(list.get(position).getTitle());
@@ -75,8 +78,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewholder> {
                 });
             }
         });
-
-
     }
 
     @Override
