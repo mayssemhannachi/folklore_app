@@ -5,15 +5,11 @@ import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.folklore_app.Adapter.FoodListAdapter;
 import com.example.folklore_app.Domain.Foods;
-import com.example.folklore_app.R;
 import com.example.folklore_app.databinding.ActivityListFoodsBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,11 +36,7 @@ public class ListFoodsActivity extends BaseActivity {
 
         getIntentExtra();
         initList();
-
-
     }
-
-
 
     private void initList() {
         DatabaseReference myRef = database.getReference("Foods");
@@ -79,6 +71,7 @@ public class ListFoodsActivity extends BaseActivity {
             }
         });
     }
+
     private void getIntentExtra() {
         categoryId = getIntent().getIntExtra("CategoryId", 0);
         categoryName = getIntent().getStringExtra("CategoryName");

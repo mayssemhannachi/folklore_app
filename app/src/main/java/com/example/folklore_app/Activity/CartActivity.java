@@ -28,7 +28,7 @@ public class CartActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityCartBinding.inflate(getLayoutInflater());
-        EdgeToEdge.enable(this);
+
         setContentView(binding.getRoot());
         managmentCart=new ManagmentCart(this);
         setVariable();
