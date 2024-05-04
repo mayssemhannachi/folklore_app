@@ -205,7 +205,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 style="@android:style/Widget.Button"
                 android:layout_marginTop="16dp"
-                android:id="@+id/button2"
+                android:id="@+id/applyBtn"
                 android:background="@drawable/blue_button_background"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
