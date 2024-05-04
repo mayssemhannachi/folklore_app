@@ -20,7 +20,7 @@ public class DetailActivity extends AppCompatActivity {
 
     ActivityDetailBinding binding;
     private Foods object;
-    private int num=1;
+    private int num=0;
     private ManagmentCart managmentCart;
 
     @Override
