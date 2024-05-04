@@ -53,7 +53,7 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 num=num+1;
-                binding.titleTxt.setText(num+" ");
+                binding.qtTxt.setText(num+" ");
                 binding.priceTxt.setText(("$"+(num*object.getPrice())));
 
             }
@@ -62,7 +62,7 @@ public class DetailActivity extends AppCompatActivity {
         binding.minusBtn.setOnClickListener(v -> {
             if (num >1){
                 num=num-1;
-                binding.titleTxt.setText(num+" ");
+                binding.qtTxt.setText(num+" ");
                 binding.totalTxt.setText("$"+(num*object.getPrice()));
             }
         });

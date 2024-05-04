@@ -76,7 +76,7 @@ public class CartActivity extends BaseActivity {
                     dialog.dismiss();
                     binding.scrollviewCart.setVisibility(View.GONE);
                     binding.emptyTxt.setVisibility(View.VISIBLE);
-                    Toast.makeText(CartActivity.this, "Your Foods is On Your Name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CartActivity.this, "Your Food is on its way \uD83D\uDE0B", Toast.LENGTH_SHORT).show();
                 }
             });
             builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
