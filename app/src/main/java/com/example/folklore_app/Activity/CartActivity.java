@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,8 +49,8 @@ public class CartActivity extends BaseActivity {
             binding.emptyTxt.setVisibility(View.GONE);
             binding.scrollviewCart.setVisibility(View.VISIBLE);
         }
-        LinearLayoutManager linearLayoutManager =new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-        binding.cartView.setLayoutManager(linearLayoutManager);
+        //LinearLayoutManager linearLayoutManager =new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        binding.cartView.setLayoutManager(new GridLayoutManager(CartActivity.this, 1));
         adapter=new CartAdapter(managmentCart.getListCart(), this, () -> calculateCart());
         binding.cartView.setAdapter(adapter);
     }

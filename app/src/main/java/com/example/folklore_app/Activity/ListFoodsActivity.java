@@ -97,7 +97,7 @@ public class ListFoodsActivity extends BaseActivity {
 
     private void getIntentExtra() {
         categoryId = getIntent().getIntExtra("CategoryId", 0);
-        categoryName = getIntent().getStringExtra("CategoryName");
+        categoryName = getIntent().getStringExtra("Title");
         searchText = getIntent().getStringExtra("text");
         isSearch = getIntent().getBooleanExtra("isSearch", false);
         Log.d("ListFoodsActivity", "CategoryId: " + categoryId + ", CategoryName: " + categoryName);
