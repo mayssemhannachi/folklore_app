@@ -88,26 +88,15 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/filterBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="6dp"
-                    android:layout_weight="0.5"
-                    android:background="@drawable/grey_background"
-                    android:padding="12dp"
-                    app:srcCompat="@drawable/settings_sliders_64px"
-                    app:tint="#3084F2"/>
-
-                <ImageView
                     android:id="@+id/cartBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="6dp"
                     android:layout_weight="0.5"
                     android:background="@drawable/grey_background"
                     android:padding="12dp"
                     app:srcCompat="@drawable/cart_64px"
-                    app:tint="#3084F2"/>
+                    app:tint="#3084F2" />
             </LinearLayout>
 
             <LinearLayout

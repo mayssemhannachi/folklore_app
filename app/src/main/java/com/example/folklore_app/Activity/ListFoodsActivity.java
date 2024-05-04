@@ -1,6 +1,7 @@
 package com.example.folklore_app.Activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
@@ -38,6 +39,9 @@ public class ListFoodsActivity extends BaseActivity {
         initList();
     }
 
+    private ValueEventListener valueEventListener;
+
+
     private void initList() {
         DatabaseReference myRef = database.getReference("Foods");
         binding.progressBar.setVisibility(View.VISIBLE);
@@ -46,20 +50,37 @@ public class ListFoodsActivity extends BaseActivity {
         Query query;
         if (isSearch) {
             query = myRef.orderByChild("Title").startAt(searchText).endAt(searchText + '\uf8ff');
+            Log.d("ListFoodsActivity", "Search: " + searchText);
         } else {
             query = myRef.orderByChild("CategoryId").equalTo(categoryId);
+        }
+
+        if (valueEventListener != null) {
+            query.removeEventListener(valueEventListener);
         }
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.d("ListFoodsActivity", "onDataChange called");
                 if (snapshot.exists()) {
+                    Log.d("ListFoodsActivity", "Snapshot exists");
                     for (DataSnapshot issue : snapshot.getChildren()) {
-                        list.add(issue.getValue(Foods.class));
+                        Log.d("ListFoodsActivity", "Snapshot exists");
+
+                        Foods food = issue.getValue(Foods.class);
+                        Log.d("ListFoodsActivity", "Food: " + food);
+                        if (food != null) {
+                            food.setCategoryId(issue.child("CategoryId").getValue(Integer.class));
+                        }
+                        list.add(food);
+                        Log.d("ListFoodsActivity", "Food: " + food.getTitle());
                     }
                     if (list.size() > 0) {
                         binding.foodListView.setLayoutManager(new GridLayoutManager(ListFoodsActivity.this, 2));
                         adapterListFood = new FoodListAdapter(list);
                         binding.foodListView.setAdapter(adapterListFood);
+                        Log.d("ListFoodsActivity", "List size: " + list.size());
+
                     }
                     binding.progressBar.setVisibility(View.GONE);
                 }
@@ -68,6 +89,8 @@ public class ListFoodsActivity extends BaseActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 // Gérer l'annulation de la requête ici
+                Log.e("Firebase", error.getMessage());
+                binding.progressBar.setVisibility(View.GONE);
             }
         });
     }
@@ -77,6 +100,7 @@ public class ListFoodsActivity extends BaseActivity {
         categoryName = getIntent().getStringExtra("CategoryName");
         searchText = getIntent().getStringExtra("text");
         isSearch = getIntent().getBooleanExtra("isSearch", false);
+        Log.d("ListFoodsActivity", "CategoryId: " + categoryId + ", CategoryName: " + categoryName);
         binding.titleTxt.setText(categoryName);
         binding.backBtn.setOnClickListener(v -> finish());
     }

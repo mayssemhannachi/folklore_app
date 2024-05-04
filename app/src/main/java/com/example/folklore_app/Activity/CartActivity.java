@@ -31,9 +31,11 @@ public class CartActivity extends BaseActivity {
 
         setContentView(binding.getRoot());
         managmentCart=new ManagmentCart(this);
+
+        initList();
+
         setVariable();
         calculateCart();
-        initList();
 
 
     }

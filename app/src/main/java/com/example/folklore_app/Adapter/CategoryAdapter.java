@@ -2,6 +2,7 @@ package com.example.folklore_app.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,6 +86,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewho
         holder.itemView.setOnClickListener(v -> {
             Intent intent=new Intent(context, ListFoodsActivity.class);
             intent.putExtra("CategoryId",items.get(position).getId());
+            Log.d("CategoryAdapter", "Category ID: " + items.get(position).getId());
             intent.putExtra("CategoryName",items.get(position).getName());
             context.startActivity(intent);
 
