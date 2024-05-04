@@ -13,6 +13,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.folklore_app.Helper.DatabaseHelper;
 import com.example.folklore_app.databinding.ActivitySignupBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,6 +21,8 @@ import com.google.firebase.auth.AuthResult;
 
 public class SignupActivity extends BaseActivity {
     ActivitySignupBinding binding;
+    DatabaseHelper databaseHelper; // Add this line
+
 
 
     @Override
@@ -27,6 +30,9 @@ public class SignupActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySignupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        databaseHelper = new DatabaseHelper(this); // Initialize DatabaseHelper
+
 
         setVariable();
     }
@@ -52,6 +58,7 @@ public class SignupActivity extends BaseActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         Log.i(TAG, "onComplete: ");
+                        databaseHelper.storeUser(email, password); // Store user's email and password
                         startActivity(new Intent(SignupActivity.this, MainActivity.class));
                     } else {
                         Log.i(TAG, "failure: " + task.getException());

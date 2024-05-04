@@ -23,6 +23,8 @@ import java.util.ArrayList;
 public class ListFoodsActivity extends BaseActivity {
     ActivityListFoodsBinding binding;
     private RecyclerView.Adapter adapterListFood;
+
+
     private int categoryId;
     private String categoryName;
     private String searchText;
@@ -37,6 +39,7 @@ public class ListFoodsActivity extends BaseActivity {
 
         getIntentExtra();
         initList();
+
     }
 
     private ValueEventListener valueEventListener;
@@ -61,6 +64,7 @@ public class ListFoodsActivity extends BaseActivity {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 Log.d("ListFoodsActivity", "onDataChange called");
                 if (snapshot.exists()) {
                     Log.d("ListFoodsActivity", "Snapshot exists");
